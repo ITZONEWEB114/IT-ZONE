@@ -12,16 +12,16 @@
 
 	<body id="store">
 		<div id="banner">
-			<%= image_tag("logo.png") %>
+			<%= link_to image_tag("logo.png"),"/" %>
 			<%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
 		</div>
 		
 		<div id="columns">
 			<div id="side">
-				<a href="#">Home</a><br />
-				<a href="#">Questions</a><br />
-				<a href="#">News</a><br />
-				<a href="#">Contact</a><br />
+				<%= link_to "Home","/" %><br />
+				<%= link_to "Questions","/" %><br />
+				<%= link_to "News","/" %><br />
+				<%= link_to "Contact","mailto:aa966@126.com" %><br />
 			</div>
 			<div id="main">
 				<%= yield %><!-- <label id="code.depot.e.include"/> -->

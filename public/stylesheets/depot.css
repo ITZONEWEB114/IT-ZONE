@@ -127,6 +127,7 @@
 
 #banner img {
 	float: left;
+	border: none;
 }
 
 #columns {
