@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Depot::Application.load_tasks
+ITZONE::Application.load_tasks
