@@ -16,6 +16,10 @@
         border-bottom: 3px dotted #77d;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* Styles for products/index */
 
 #product_list table {
@@ -90,6 +94,9 @@
  margin-bottom: 2px;
  color: #227;
 }
+#store .entry h3 a{
+  text-decoration: none;
+}
 
 #store .entry p {
  margin-top: 0.5em; 
@@ -109,12 +116,18 @@
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
+  display: inline-block;
+  width: 4em;
 }
 
 #store .entry form, #store .entry form div {
 	display: inline;
 }
 
+
+/* layouts */
+
+	/* banner */
 #banner {
 	background: #9c9;
 	padding-top: 10px;
@@ -130,10 +143,12 @@
 	border: none;
 }
 
+	/* columns */
 #columns {
-	background: #141;
+/*	background: #141;*/
 }
 
+	/* main */
 #main {
 	margin-left: 13em;
 	padding-top: 4ex;
@@ -141,6 +156,7 @@
 	background: white;
 }
 
+	/* side */
 #side {
 	float: left;
 	padding-top: 1em;
@@ -153,4 +169,20 @@
 #side a {
 	color: #bfb;
 	font-size: small;
+}
+
+#side #booksort ul{
+	padding-left: 1em;
+	color: olive;
+}
+
+#side #booksort li.hotsort a{
+	font-weight: bold;
+	color: red;
+}
+
+	/* footer */
+#footer {
+	margin-top: 2em;
+	text-align: center;
 }

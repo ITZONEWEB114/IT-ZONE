@@ -4,10 +4,11 @@
 
 <h1>Your Pragmatic Catalog</h1>
 
+<div id="productsInStore">
 <% @products.each do |product| %>
 	<div class="entry">
-		<%= image_tag(product.image_url) %>
-		<h3><%= product.title %></h3>
+		<%= link_to image_tag(product.image_url), product %>
+		<h3><%= link_to product.title, product %></h3>
 		<%= sanitize product.description %>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(product.price) %></span>
@@ -15,3 +16,11 @@
 		</div>
 	</div>
 <% end %>
+</div>
+<div id="cartSidebar">
+	<ul>
+		<% for item in @cart.line_items %>
+			<li><%= item.product.title %></li>
+		<% end %>
+	</ul>
+</div>

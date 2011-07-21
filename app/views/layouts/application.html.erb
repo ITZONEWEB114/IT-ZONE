@@ -14,19 +14,86 @@
 		<div id="banner">
 			<%= link_to image_tag("logo.png"),"/" %>
 			<%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
+
+
 		</div>
 		
 		<div id="columns">
 			<div id="side">
-				<%= link_to "Home","/" %><br />
-				<%= link_to "Questions","/" %><br />
-				<%= link_to "News","/" %><br />
-				<%= link_to "Contact","mailto:aa966@126.com" %><br />
+				<div id="booksort">
+					<ul>
+						<li class="hotsort"><%= link_to "知音(HOT!!)", "#" %></li>
+						<li class="hotsort"><%= link_to "故事会(HOT!!)", "#" %></li>
+						<li><%= link_to "英文原版书", "#" %></li>
+						<li><%= link_to "小说", "#" %></li>
+						<li><%= link_to "文学", "#" %></li>
+						<li><%= link_to "青春文学", "#" %></li>
+						<li><%= link_to "传记", "#" %></li>
+						<li><%= link_to "艺术", "#" %></li>
+						<li><%= link_to "少儿", "#" %></li>
+						<li><%= link_to "经济", "#" %></li>
+						<li><%= link_to "金融与投资", "#" %></li>
+						<li><%= link_to "管理", "#" %></li>
+						<li><%= link_to "励志与成功", "#" %></li>
+						<li><%= link_to "生活", "#" %></li>
+						<li><%= link_to "健身与保健", "#" %></li>
+						<li><%= link_to "家庭与育儿", "#" %></li>
+						<li><%= link_to "旅游", "#" %></li>
+						<li><%= link_to "动漫/幽默", "#" %></li>
+						<li><%= link_to "历史", "#" %></li>
+						<li><%= link_to "哲学", "#" %></li>
+						<li><%= link_to "国学", "#" %></li>
+						<li><%= link_to "政治/军事", "#" %></li>
+						<li><%= link_to "法律", "#" %></li>
+						<li><%= link_to "宗教", "#" %></li>
+						<li><%= link_to "心理学", "#" %></li>
+						<li><%= link_to "文化", "#" %></li>
+						<li><%= link_to "社会科学", "#" %></li>
+						<li><%= link_to "科技", "#" %></li>
+						<li><%= link_to "工程", "#" %></li>
+						<li><%= link_to "建筑", "#" %></li>
+						<li><%= link_to "医学", "#" %></li>
+						<li><%= link_to "科学与自然", "#" %></li>
+						<li><%= link_to "计算机与互网", "#" %></li>
+						<li><%= link_to "体育/运动", "#" %></li>
+						<li><%= link_to "教材教辅", "#" %></li>
+						<li><%= link_to "教育与考试", "#" %></li>
+						<li><%= link_to "外语学习", "#" %></li>
+						<li><%= link_to "新闻出版", "#" %></li>
+						<li><%= link_to "语言文字", "#" %></li>
+						<li><%= link_to "工具书", "#" %></li>
+						<li><%= link_to "影印版", "#" %></li>
+						<li><%= link_to "套装书", "#" %></li>
+						<li><%= link_to "地图", "#" %></li>
+						<li><%= link_to "杂志/期刊", "#" %></li>
+						<li><%= link_to "行知读书会", "#" %></li>
+					</ul>
+				</div>
 			</div>
 			<div id="main">
 				<%= yield %><!-- <label id="code.depot.e.include"/> -->
 			</div>
+			<div style="clear: both"></div>
 		</div>
-
+			<div style="clear: both,overflow: hidden"></div>
+			 
+		<div id="footer">
+			<div id="links">
+				<%= link_to "Home","/" %>|
+				<%= link_to "Questions","/" %>|
+				<%= link_to "News","/" %>|
+				<%= link_to "Contact","mailto:aa966@126.com" %>|
+				<%= link_to "About us","https://github.com/ITZONEWEB114/IT-ZONE" %>|
+			</div>
+			<div id="copyright">
+				<span>Copyright&copy;2011-2011 <%= link_to "ITZONE", "https://github.com/ITZONEWEB114/IT-ZONE" %></span>
+			</div>
+		</div>
+		
+		
+		<!-- ShareTo Button BEGIN -->
+		<!-- %= javascript_include_tag "http://s.shareto.com.cn/js/shareto_float.js#color=1&align=right&move=0" % -->
+		<!-- <%= javascript_include_tag "shareto_float.js#color=1&align=right&move=0" %> -->
+		<!-- ShareTo Button END -->
 	</body>
 </html>
