@@ -3,7 +3,7 @@
 <ul>
 	<% for item in @cart.line_items %>
 	<li>
-		<%= item.product.title %>
+		<%= item.quantity %> &times; <%= item.product.title %></li>
 	</li>
 	<% end %>
 </ul>
