@@ -1,3 +1,4 @@
+page.select("#notice" ).each { |notice| notice.hide }
 page.replace_html('cart', render(@cart))
 #START_HIGHLIGHT
 
