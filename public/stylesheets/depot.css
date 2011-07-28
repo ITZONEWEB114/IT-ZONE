@@ -1,3 +1,4 @@
+/***********application layout**************/
 /* Global styles */
 
 #store #notice {
@@ -6,21 +7,133 @@
         padding: 1em;
         margin-bottom: 2em;
         background-color: #f0f0f0;
-        font: bold smaller sans-serif;
+        font: bold medium sans-serif;
 }
 
+#store a {
+	text-decoration: none;
+}
 
-#store h1 {
+/* banner */
+#banner {
+	background: #9c9;
+	padding-top: 10px;
+	padding-bottom: 3px;
+	border-bottom: 2px solid;
+}
+
+#banner #operatebar {
+	margin: -5px 10px 0 0;
+	float: right;
+}
+
+#banner #pagetitle {
+	font: small-caps 40px/40px "Times New Roman", serif;
+	color: #282;
+	text-align: center;
+}
+
+#banner img {
+	float: left;
+	border: none;
+}
+
+#banner #searchbar {
+	float: right;
+	margin-right: 10px;
+}
+
+/* columns */
+
+	/* main */
+#main {
+	margin-left: 17em;
+	padding-top: 4ex;
+	padding-left: 2em;
+	background: white;
+}
+#main h1 {
         font:  150% sans-serif;
         color: #226;
         border-bottom: 3px dotted #77d;
 }
 
-a {
-	text-decoration: none;
+	/* side */
+#side {
+	float: left;
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 0.5em;
+	padding-bottom: 1em;
+	width: 16em;
+	background: #141;
 }
 
-/* Styles for products/index */
+		/* sytles for the cart in the sidebar */
+	
+#cart, #cart tabel {
+	font-size: smaller;
+	color: white;
+}
+
+#cart table {
+	border-top:		1px dotted #595;
+	border-bottom:	1px dotted #595;
+	margin-bottom: 	10px;
+}
+
+#store .cart_title {
+	font: 120% bold;
+}
+
+#store .item_price, #store .total_line {
+	text-align: right;
+}
+
+#store .total_line .total_cell {
+	font-weight: bold;
+	border-top: 1px solid #595;
+}
+
+#store #cart a {
+	color: white;
+}
+#store .delete_item a:hover {
+	background: none;
+}
+
+		/* booksort */
+#side #booksort a {
+	color: #bfb;
+	font-size: small;
+}
+
+#side #booksort ul{
+	padding-left: 1em;
+	color: olive;
+}
+
+#side #booksort li.hotsort a{
+	font-weight: bold;
+	color: red;
+}
+
+	/* footer */
+#footer {
+	margin-top: 2em;
+	text-align: center;
+}
+
+	/* mix */
+.clearfloat {
+	padding: 0;
+	margin: 0;
+	clear: both;
+}
+/********/
+
+
+/************Styles for products/index*********/
 
 #product_list table {
         border-collapse: collapse;
@@ -68,7 +181,7 @@ a {
   background:   #f8b0f8;
 }
 
-/* An entry in the store catalog */
+/*********An entry in the store catalog*************/
 
 #store  .entry {
   overflow: auto;
@@ -124,65 +237,3 @@ a {
 	display: inline;
 }
 
-
-/* layouts */
-
-	/* banner */
-#banner {
-	background: #9c9;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
-	text-align: center;
-}
-
-#banner img {
-	float: left;
-	border: none;
-}
-
-	/* columns */
-#columns {
-/*	background: #141;*/
-}
-
-	/* main */
-#main {
-	margin-left: 13em;
-	padding-top: 4ex;
-	padding-left: 2em;
-	background: white;
-}
-
-	/* side */
-#side {
-	float: left;
-	padding-top: 1em;
-	padding-left: 1em;
-	padding-bottom: 1em;
-	width: 12em;
-	background: #141;
-}
-
-#side a {
-	color: #bfb;
-	font-size: small;
-}
-
-#side #booksort ul{
-	padding-left: 1em;
-	color: olive;
-}
-
-#side #booksort li.hotsort a{
-	font-weight: bold;
-	color: red;
-}
-
-	/* footer */
-#footer {
-	margin-top: 2em;
-	text-align: center;
-}

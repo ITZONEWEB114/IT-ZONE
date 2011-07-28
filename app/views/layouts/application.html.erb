@@ -12,14 +12,23 @@
 
 	<body id="store">
 		<div id="banner">
-			<%= link_to image_tag("logo.png"),"/" %>
-			<%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
-
+			<div id="operatebar"><%= link_to "Lo333333333332999999999gin", "/" %></div>
+			<div id="pagetitle">
+				<%= link_to image_tag("logo.png"),"/" %><%= @page_title || "Pragmatic Bookshelf" %>
+			</div><!-- <label id="code.depot.e.title"/> -->
+			<div id="searchbar"><input id="searchkey" type="text" name="searchkey" /><input id="btn-search" type="submit" name="searchsubmit" value="Search" /></div>
+			
+			<div class="clearfloat"></div>
 
 		</div>
 		
 		<div id="columns">
 			<div id="side">
+				<% if @cart %>
+					<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+						<%= render @cart %>
+					<% end %>
+				<% end %>
 				<div id="booksort">
 					<ul>
 						<li class="hotsort"><%= link_to "知音(HOT!!)", "#" %></li>
@@ -73,9 +82,8 @@
 			<div id="main">
 				<%= yield %><!-- <label id="code.depot.e.include"/> -->
 			</div>
-			<div style="clear: both"></div>
+			<div class="clearfloat"></div>
 		</div>
-			<div style="clear: both,overflow: hidden"></div>
 			 
 		<div id="footer">
 			<div id="links">

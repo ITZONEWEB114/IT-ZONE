@@ -9,6 +9,10 @@ Depot::Application.routes.draw do
   
   root :to => 'store#index', :as => 'store'
   
+  
+  # !!!!Keep the following one last in routing rules
+  match '*a', :to => 'errors#routing' # ??unless ActionController::Base.consider_all_requests_local
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
