@@ -237,3 +237,35 @@
 	display: inline;
 }
 
+/***************Styles for order form*****************/
+.depot_form legend {
+	background: #efe;
+}
+
+.depot_form legend {
+	color: #dfd;
+	background: #141;
+	font-family:sans-serif;
+	padding: 0.2em 1em;
+}
+
+.depot_form label {
+	width: 5em;
+	float: left;
+	text-align: right;
+	padding-top: 0.2em;
+	margin-right: 0.1em;
+	display: block;
+}
+
+.depot_form select, .depot_form textarea, .depot_form input {
+	margin-left: 0.5em;
+}
+
+.depot_form #order_submit {
+	margin-left: 4em;
+}
+
+.depot_form div {
+	margin: 0.5em 0;
+}

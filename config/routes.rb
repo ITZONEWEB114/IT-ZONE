@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :orders
+
   resources :line_items
 
   resources :carts
@@ -7,13 +9,14 @@ Depot::Application.routes.draw do
 
   resources :products
   
+  resources :products do
+	get :who_bought, :on => :member
+  end
+  
   root :to => 'store#index', :as => 'store'
   
-  
-  # !!!!Keep the following one last in routing rules
-  match '*a', :to => 'errors#routing' # ??unless ActionController::Base.consider_all_requests_local
-  
-
+  # !!!!make sure the following is the last one in routes.rb
+  match '*a' => 'errors#routing'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
