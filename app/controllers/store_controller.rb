@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   def index
-	@products = Product.all
+	@products, @isAll, flash[:notice] = Product.getProducts params
 	@cart = current_cart
   end
 

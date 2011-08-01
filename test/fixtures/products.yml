@@ -2,18 +2,21 @@
 
 one:
   title: Ruby
+  category: Default
   description: MyText
   image_url: MyString
   price: 9.99
 
 two:
   title: MyString
+  category: Default
   description: MyText
   image_url: MyString
   price: 9.99
 
 ruby: 
   title:       The Ruby Programming Language 1.9
+  category: Computers & Internet
   description: 
     Ruby is the fastest growing and most exciting dynamic
     language out there.  If you need to get working programs

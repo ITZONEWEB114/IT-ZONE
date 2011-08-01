@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <b>Category:</b>
+  <%= link_to @product.category, products_path(:category => @product.category) %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @product.description %>
 </p>

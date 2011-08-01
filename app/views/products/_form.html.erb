@@ -16,6 +16,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :category %><br />
+    <%= f.select :category, Product::CATEGORIES %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>

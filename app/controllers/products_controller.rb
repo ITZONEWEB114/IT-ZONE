@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
-
+    @products, @isAll, flash[:notice] = Product.getProducts params
+	
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
