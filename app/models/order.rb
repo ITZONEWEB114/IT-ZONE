@@ -14,4 +14,8 @@ class Order < ActiveRecord::Base
 			line_items << item
 		end
 	end
+	
+	def translated_pay_type
+		I18n.t(pay_type, :scope => :pay_types)
+	end
 end

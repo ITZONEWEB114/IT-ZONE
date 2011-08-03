@@ -1,19 +1,46 @@
 Depot::Application.routes.draw do
-  resources :orders
-
-  resources :line_items
-
-  resources :carts
-
-  get "store/index"
-
-  resources :products
+  get 'admin' => 'admin#index'
   
-  resources :products do
-	get :who_bought, :on => :member
+  
+  controller :sessions do
+	get		'login' => :new
+	post	'login' => :create
+	delete	'logout' => :destroy
   end
+
+	scope '(:locale)' do
+		resources :users
+		resources :orders
+		resources :line_items
+		resources :carts
+		resources :products do
+			get :who_bought, :on => :member
+		end
+		controller :store do
+			post	'search_product' => :search
+			get		'show_product' => :show
+		end
+		root :to => 'store#index', :as => 'store'
+	end
+	
+  # resources :users
+
+  # resources :orders
+
+  # resources :line_items
+
+  # resources :carts
+
+  # get "store/index"
+
+  # resources :products
   
-  root :to => 'store#index', :as => 'store'
+  # resources :products do
+	# get :who_bought, :on => :member
+  # end
+  
+  # root :to => 'store#index', :as => 'store'
+  
   
   # !!!!make sure the following is the last one in routes.rb
   match '*a' => 'errors#routing'

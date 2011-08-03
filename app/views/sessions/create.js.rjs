@@ -1,0 +1,5 @@
+page.redirect_to @url_to if @passed
+
+page.alert("Invalid user/password combination.Please try again.") if !@passed
+
+page.reload if !@passed

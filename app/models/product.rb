@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
 		end
 		
 		isAll = false
-		if params.has_key? :category
+		if params[:category]
 			if CATEGORIES.include? params[:category]
 				@products = Product.find_all_by_category params[:category]
 				if @products.empty?

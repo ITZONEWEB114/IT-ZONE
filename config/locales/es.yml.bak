@@ -1,0 +1,127 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  
+  layouts:
+    application:
+      #banner
+      title:            "Publicaciones de Pragmatic"
+      please:           "Por favor,"
+      login:            "ingresa"
+      orders:           "Órdenes"
+      products:         "Productos"
+      users:            "Los usuarios"
+      logout:           "Cerrar sesión"
+      search:           "Búsqueda"
+      
+      # footer
+      home:             "Inicio"
+      questions:        "Preguntas"
+      news:             "Noticias"
+      contact:          "Contacto"
+      about us:         "Sobre nosotros"
+      copyright:        "Derechos de autor"
+      itzone:           "Que la zona"
+
+  cate:
+    1: "1r"
+    Default:                    "Defecto"
+    Arts & Photography:         "Arte, arquitectura y fotografía"
+    Audiobooks:                 "Audiolibros"
+    Audible Audiobooks:         "Audiolibros audible"
+    Biographies & Memoirs:      "Biografías y memorias"
+    Business & Investing:       "Negocios e inversiones"
+    Calendars:                  "Calendarios"
+    Children's Books:           "Infantil y juvenil"
+    Christian Books:            "Libros cristianos"
+    Comics & Graphic Novels:    "Revistas Cómicas y Novelas Gráficas"
+    Computers & Internet:       "Computación e internet"
+    Cooking, Food & Wine:       "Cocina"
+    Crafts & Hobbies:           "Artesanía y Aficiones"
+    Entertainment:              "Entretenimiento"
+    Gay & Lesbian:              "Gay y Lesbiana"
+    Health, Mind & Body:        "Salud, mente y cuerpo"
+    History:                    "Historia"
+    Home & Garden:              "Hogar y jardinería"
+    Literature & Fiction:       "Literatura y ficción"
+    Mystery & Thrillers:        "Misterio"
+    Nonfiction:                 "No-Ficción"
+    Outdoors & Nature:          "Al Aire Libre y La Naturaleza"
+    Parenting & Families:       "Padres y familia"
+    Politics:                   "Política"
+    Professional & Technical:   "Profesional y Técnico"  
+    Puzzles & Games:            "Puzzles y juegos"  
+    Rare & Collectible Books:   "Rare and Collectible Books"
+    Reference:                  "Referencia"
+    Religion & Spirituality:    "Religión y espiritualidad"
+    Romance:                    "Romance"
+    Science:                    "Ciencia"
+    Science Fiction & Fantasy:  "Ciencia ficción y fantasía"
+    Self-Help:                  "Autoayuda"
+    Sports:                     "Deportes"
+    Teens:                      "Los adolescentes"
+    Textbooks:                  "Los libros de texto"    
+    Travel:                     "Viajes y turismo"
+      
+      
+  store:
+    index: &store_index
+      title:       "Su Cat&aacute;logo de Pragmatic"
+      add:         "A&ntilde;adir al Carrito"
+    show:
+      *store_index
+      
+  carts:
+    cart:               
+      title:              "Carrito de la Compra"
+      empty:              "Vaciar Carrito"
+      checkout:           "Comprar"
+      
+  number:
+    currency:
+      format:
+        unit:             "$US"
+        precision:        2
+        separator:        "."
+        delimiter:        ","
+        format:           "%n&nbsp;%u"
+        
+  orders:
+    new:
+      legend:             "Por favor, introduzca sus datos"
+    form:
+      name:               "Nombre"
+      address:            "Direcci&oacute;n"
+      email:              "E-mail"
+      pay_type:           "Pagar con"
+      pay_prompt:         "Seleccione un m&eacute;todo de pago"
+      submit:             "Realizar Pedido"
+      
+      
+  activerecord:
+    errors:
+      messages:
+        inclusion:        "no set&aacute; incluido en la lista"
+        blank:            "no puede quedar en blanco"
+    models:
+      order:              "pedido"
+    attributes:
+      order:
+        address:          "Direcci&oacute;n"
+        name:             "Nombre"
+        email:            "E-mail"
+        pay_type:         "Forma de pago"
+        
+        
+  errors:
+    template:
+      body:               "Hay problemas con los siguientes campos : "
+      header:
+        one:              "1 error ha impedido que este %{model} se guarde"
+        other:            "%{count} errores han impedido que este %{model} se guarde"
+        
+        
+  thanks:                 "Gracias por su pedido"
+  all:                    "Todos"
+  category:               "Categoría"    

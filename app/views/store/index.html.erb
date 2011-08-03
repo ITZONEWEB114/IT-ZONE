@@ -2,18 +2,18 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Your Pragmatic Catalog of Category : <%= link_to "All", products_path %><% unless @isAll %> >> <%=link_to params[:category], products_path(:category => params[:category]) %><% end %></h1>
+<h1><%= t('.title').html_safe %> : <%= link_to t('all'), store_path %><% unless @isAll %> >> <%=link_to t("categories.#{params[:category]}"), store_path(:category => params[:category]) %><% end %></h1>
 
 <div id="productsInStore">
 <% @products.each do |product| %>
 	<div class="entry">
-		<%= link_to image_tag(product.image_url), product %>
-		<h3><%= link_to product.title, product %></h3>
-		<p>Category : <%= link_to product.category, store_path(:category => product.category) %></p>
+		<%= link_to image_tag(product.image_url), show_product_path(:product_id => product) %>
+		<h3><%= link_to product.title, show_product_path(:product_id => product) %></h3>
+		<p><%= t('category')%> : <%= link_to t("categories.#{product.category}"), store_path(:category => product.category) %></p>
 		<%= sanitize product.description %>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(product.price) %></span>
-			<%= button_to 'Add to Cart', line_items_path(:product_id => product),
+			<%= button_to t('.add').html_safe, line_items_path(:product_id => product),
 				:remote => true %>
 		</div>
 	</div>

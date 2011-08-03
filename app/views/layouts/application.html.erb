@@ -12,11 +12,32 @@
 
 	<body id="store">
 		<div id="banner">
-			<div id="operatebar"><%= link_to "Lo333333333332999999999gin", "/" %></div>
+			<div id="operatebar">
+				<% if session[:user_id] %>
+					<span class="operation"><%= link_to t('.orders'), orders_path %></span>
+					|
+					<span class="operation"><%= link_to t('.products'), products_path %></span>
+					|
+					<span class="operation"><%= link_to t('.users'), users_path %></span>
+					|
+					<span class="operation"><%= link_to t('.logout'), logout_path, :method => :delete %></span>
+				<% else %>
+					<span class="operation"><%= t('.please') %> <%= link_to t('.login'), login_path %></span>
+				<% end %>
+			</div>
+			<div class="clearfloat"></div>
 			<div id="pagetitle">
-				<%= link_to image_tag("logo.png"),"/" %><%= @page_title || "Pragmatic Bookshelf" %>
+				<%= link_to image_tag("logo.png"),store_path %>
+				<%= @page_title || t('.title') %>
+				<%= form_tag store_path, :class => 'locale' do %>
+					<%= select_tag 'set_locale',
+						options_for_select(LANGUAGES, I18n.locale.to_s),
+						:onchange => 'this.form.submit()' %>
+					<%= submit_tag 'submit' %>
+					<%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+				<% end %>
 			</div><!-- <label id="code.depot.e.title"/> -->
-			<div id="searchbar"><input id="searchkey" type="text" name="searchkey" /><input id="btn-search" type="submit" name="searchsubmit" value="Search" /></div>
+			<div id="searchbar"><%= form_tag store_path do %><%= text_field_tag 'searchkey', nil, :id => 'searchkey' %><%= submit_tag t('.search'), :id => 'btn-search', :name => 'searchsubmit' %><% end %></div>
 			
 			<div class="clearfloat"></div>
 
@@ -35,7 +56,11 @@
 						<li class="hotsort"><%= link_to "故事会(HOT!!)", "#" %></li>
 						
 						<% Product::CATEGORIES.each do |category| %>
-							<li><%= link_to category, store_path(:category => category) %></li>
+							<% if session[:user_id] %>
+								<li><%= link_to t("categories.#{category}"), products_path(:category => category) %></li>
+							<% else %>
+								<li><%= link_to t("categories.#{category}"), store_path(:category => category) %></li>
+							<% end %>
 						<% end %>
 					</ul>
 				</div>
@@ -48,14 +73,14 @@
 			 
 		<div id="footer">
 			<div id="links">
-				<%= link_to "Home","/" %>|
-				<%= link_to "Questions","/" %>|
-				<%= link_to "News","/" %>|
-				<%= link_to "Contact","mailto:aa966@126.com" %>|
-				<%= link_to "About us","https://github.com/ITZONEWEB114/IT-ZONE" %>|
+				<%= link_to t(".home"),"/" %>|
+				<%= link_to t(".questions"),"/" %>|
+				<%= link_to t(".news"),"/" %>|
+				<%= link_to t(".contact"),"mailto:aa966@126.com" %>|
+				<%= link_to t(".about us"),"https://github.com/ITZONEWEB114/IT-ZONE" %>|
 			</div>
 			<div id="copyright">
-				<span>Copyright&copy;2011-2011 <%= link_to "ITZONE", "https://github.com/ITZONEWEB114/IT-ZONE" %></span>
+				<span><%= t(".copyright") %>&copy;2011-2011 <%= link_to t(".itzone"), "https://github.com/ITZONEWEB114/IT-ZONE" %></span>
 			</div>
 		</div>
 		

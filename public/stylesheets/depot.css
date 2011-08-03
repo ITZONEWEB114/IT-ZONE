@@ -22,6 +22,7 @@
 	border-bottom: 2px solid;
 }
 
+	/* operatebar */
 #banner #operatebar {
 	margin: -5px 10px 0 0;
 	float: right;
@@ -31,6 +32,13 @@
 	font: small-caps 40px/40px "Times New Roman", serif;
 	color: #282;
 	text-align: center;
+	margin-top: 0.125em;
+	margin-bottom: 0.125em;
+}
+
+#banner .locale {
+	float: right;
+	margin-top: -7px;
 }
 
 #banner img {
@@ -238,7 +246,7 @@
 }
 
 /***************Styles for order form*****************/
-.depot_form legend {
+.depot_form fieldset {
 	background: #efe;
 }
 

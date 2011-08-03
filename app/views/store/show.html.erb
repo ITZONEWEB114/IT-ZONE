@@ -1,0 +1,19 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= t('.title').html_safe %> : <%= link_to t('all'), store_path %> >> <%=link_to t("categories.#{@product.category}"), store_path(:category => params[:category]) %></h1>
+
+<div id="productsInStore">
+	<div class="entry">
+		<%= link_to image_tag(@product.image_url), @product %>
+		<h3><%= link_to @product.title, show_product_path(:product_id => @product) %></h3>
+		<p><%= t('category')%> : <%= link_to t("categories.#{@product.category}"), store_path(:category => @product.category) %></p>
+		<%= sanitize @product.description %>
+		<div class="price_line">
+			<span class="price"><%= number_to_currency(@product.price) %></span>
+			<%= button_to t('.add').html_safe, line_items_path(:product_id => @product),
+				:remote => true %>
+		</div>
+	</div>
+</div>

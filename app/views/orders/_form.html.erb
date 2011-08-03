@@ -1,39 +1,39 @@
 <%= form_for @order do |f| %>
 	<% if @order.errors.any? %>
 		<div id="error_explanation">
-			<h2><%= pluralize(@order.errors.count, "error") %>
-				prohibited this order from being saved:</h2>
+			<h2><%= t('errors.template.header', :count=>@order.errors.size, :model=>t('activerecord.models.order')).html_safe %></h2>
+			<p><%= t('errors.template.body') %></p>
 			<ul>
 			<% @order.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+				<li><%= raw msg %></li>
 			<% end %>
 			</ul>
 		</div>
 	<% end %>
 	
 	<div>
-		<%= f.label :name, "Name:" %>
+		<%= f.label :name, t('.name')+":" %>
 		<%= f.text_field :name, :size => 40 %>
 	</div>
 	
 	<div>
-		<%= f.label :address, "Address:" %>
+		<%= f.label :address, t('.address').html_safe+":" %>
 		<%= f.text_area :address, :rows => 3, :cols => 40 %>
 	</div>
 	
 	<div>
-		<%= f.label :email, "E-mail:" %>
+		<%= f.label :email, t('.e-mail')+":" %>
 		<%= f.email_field :email, :size => 40 %>
 	</div>
 	
 	<div>
-		<%= f.label :pay_type, "Pay with:" %>
+		<%= f.label :pay_type, t('.pay_type')+":" %>
 		<%=
 			f.select :pay_type,
-						Order::PAYMENT_TYPES,
-						:prompt => "Select a payment method"
+						pay_types,
+						:prompt => t('.pay_prompt').html_safe
 		%>
 	</div>
 	
-	<%= f.submit "Place Order!!" %>
+	<%= f.submit t('.submit') %>
 <% end %>
