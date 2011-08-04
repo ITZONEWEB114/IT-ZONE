@@ -1,4 +1,5 @@
 ITZONE::Application.routes.draw do
+  resources :users
   resources :line_items
   resources :orders
   resources :carts
