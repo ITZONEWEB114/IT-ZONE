@@ -9,7 +9,7 @@
 	font: bold smaller sans-serif;
 }
 #store h1 {
-	font:  150% sans-serif;
+	font: 150% sans-serif;
 	color: #226;
 	border-bottom: 3px dotted #77d;
 }
@@ -23,33 +23,33 @@
 	vertical-align: top;
 }
 #product_list .list_image {
-	width:        60px;
-	height:       70px;
+	width: 60px;
+	height: 70px;
 }
 #product_list .list_description {
-	width:        60%;
+	width: 60%;
 }
 #product_list .list_description dl {
 	margin: 0;
 }
 #product_list .list_description dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
+	color: #244;
+	font-weight: bold;
+	font-size: larger;
 }
 #product_list .list_description dd {
 	margin: 0;
 }
 #product_list .list_actions {
-	font-size:    x-small;
-	text-align:   right;
+	font-size: x-small;
+	text-align: right;
 	padding-left: 1em;
 }
 #product_list .list_line_even {
-	background:   #e0f8f8;
+	background: #e0f8f8;
 }
 #product_list .list_line_odd {
-	background:   #f8b0f8;
+	background: #f8b0f8;
 }
 /* An entry in the store catalog */
 
@@ -100,7 +100,7 @@
 	font: bold smaller sans-serif;
 }
 #store h1 {
-	font:  150% sans-serif;
+	font: 150% sans-serif;
 	color: #226;
 	border-bottom: 3px dotted #77d;
 }
@@ -114,33 +114,33 @@
 	vertical-align: top;
 }
 #product_list .list_image {
-	width:        60px;
-	height:       70px;
+	width: 60px;
+	height: 70px;
 }
 #product_list .list_description {
-	width:        60%;
+	width: 60%;
 }
 #product_list .list_description dl {
 	margin: 0;
 }
 #product_list .list_description dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
+	color: #244;
+	font-weight: bold;
+	font-size: larger;
 }
 #product_list .list_description dd {
 	margin: 0;
 }
 #product_list .list_actions {
-	font-size:    x-small;
-	text-align:   right;
+	font-size: x-small;
+	text-align: right;
 	padding-left: 1em;
 }
 #product_list .list_line_even {
-	background:   #e0f8f8;
+	background: #e0f8f8;
 }
 #product_list .list_line_odd {
-	background:   #f8b0f8;
+	background: #f8b0f8;
 }
 /* START:mainlayout */
 /* Styles for main page */
@@ -150,7 +150,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
+	font: small-caps 40px /40px "Times New Roman", serif;
 	color: #282;
 	text-align: center;
 }
@@ -242,19 +242,16 @@
 	border-bottom: 1px dotted #595;
 	margin-bottom: 10px;
 }
-
 /* Styles for order form */
 .depot_form fieldset {
 	background: #efe;
 }
-
 .depot_form legend {
 	color: #dfd;
 	background: #141;
 	font-family: sans-serif;
 	padding: 0.2em 1em;
 }
-
 .depot_form label {
 	width: 5em;
 	float: left;
@@ -263,15 +260,16 @@
 	margin-right: 0.1em;
 	display: block;
 }
-
 .depot_form select, .depot_form textarea, .depot_form input {
 	margin-left: 0.5em;
 }
-
 .depot_form .submit {
 	margin-left: 4em;
 }
-
 .depot_form div {
 	margin: 0.5em 0;
+}
+.locale {
+	float: right;
+	padding-top: 0.2em
 }
