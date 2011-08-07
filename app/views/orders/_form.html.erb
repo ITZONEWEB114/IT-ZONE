@@ -1,0 +1,41 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('errors.template.header', :count=>@order.errors.size,
+        :model=>t('activerecord.models.order')) %>.</h2>
+      <p><%= t('errors.template.body') %></p>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= raw msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, t('.name')+":" %>
+    <%= f.text_field :name, :size => 40 %>
+  </div>
+  
+  <div>
+    <%= f.label :address, t('.address')+":" %>
+    <%= f.text_area :address, :rows => 3, :cols => 40 %>
+  </div>
+  
+  <div>
+    <%= f.label :email, t('.email')+":" %>
+    <%= f.email_field :email, :size => 40 %>
+  </div>
+  
+  <div>
+    <%= f.label :pay_type, t('.pay_type')+':' %>
+    <%= f.select :pay_type, Order::PAYMENT_TYPES,
+                  :prompt => 'Select a payment method' %>
+  </div>
+  
+  <div>
+    <%= f.submit t('.submit') %>
+  </div>
+  
+<% end %>
