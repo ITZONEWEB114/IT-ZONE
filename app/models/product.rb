@@ -26,7 +26,8 @@ class Product < ActiveRecord::Base
 			@notice = a_notice
 		end
 		
-		isAll = false
+		@isAll = false
+		@notice = nil
 		if params[:category]
 			if CATEGORIES.include? params[:category]
 				@products = Product.find_all_by_category params[:category]
@@ -54,4 +55,8 @@ class Product < ActiveRecord::Base
 		:with		=> %r{\.(gif|jpg|png)$}i,
 		:message	=> 'must be a URL for GIF, JPG or PNG image.'
 	}
+	
+	def translated_category
+		I18n.t(category, :scope => :categories) 
+	end
 end
