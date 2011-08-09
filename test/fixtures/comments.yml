@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_name: MyString
+  produtc_id: 1
+  time: MyString
+  star: 1
+  description: MyText
+
+two:
+  customer_name: MyString
+  produtc_id: 1
+  time: MyString
+  star: 1
+  description: MyText

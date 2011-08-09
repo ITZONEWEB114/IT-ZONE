@@ -1,0 +1,64 @@
+en:
+  layouts:
+    application:
+      title: "Pragmatic Bookshelf"
+      home: "Home"
+      questions: "Questions"
+      news: "News"
+      contact: "Contact"
+
+  orders:
+    new:
+      legend: "Please Enter your Details"
+    form:
+      name: "Name"
+      address_html: "Address"
+      email: "E-mail"
+      pay_type: "Pay with"
+      pay_prompt_html: "Select a payment method"
+      submit: "Place Order"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "is not include in the list"
+        blank: "can't be blank"
+    models:
+      order: "order"
+    attributes:
+      order:
+        address: "Address"
+        name: "Name"
+        email: "E-mail"
+        pay_type: "pay-type"
+
+  errors:
+    template:
+      body: "There are problems with the following fields"
+      header:
+        one: "1 error prohibited this order from being saved"
+        other: "%{count} errors prohibited this order from being saved"
+
+  thanks: "Thank you for your order"
+  
+  store:
+    index:
+      title_html: "Your Pragmatic Catalog"
+      add_html: "Add to Cart"
+
+  carts:
+    cart:
+      title: "Your Cart"
+      empty: "Empty Cart"
+      checkout: "Checkout"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+      
+        
