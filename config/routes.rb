@@ -1,17 +1,10 @@
 Depot::Application.routes.draw do
-  
-  get 'admin' => 'admin#index'
-
-  controller :sessions do
-    get "login" => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
 
   get "store/index" 
   
   scope '(:locale)' do
      resources :users
+     resources :customers
      resources :orders
      resources :line_items
      resources :carts
@@ -20,6 +13,21 @@ Depot::Application.routes.draw do
      end
   
      root :to => 'store#index', :as => 'store'
+     
+     controller :customer_admin do
+       get "customer_admin/login" => :login, :as => :customer_admin_login
+       post "customer_admin/login" => :judge, :as => :customer_admin_login
+       get "customer_admin/logout" => :logout, :as => :customer_admin_logout
+       get "customer_admin/confirm" => :confirm, :as => :customer_admin_confirm
+    end
+    
+    get 'admin' => 'admin#index'
+
+    controller :sessions do
+      get "login" => :new, :as => :login
+      post 'login' => :create, :as => :login
+      delete 'logout' => :destroy, :as => :logout
+   end
   end
  end
   

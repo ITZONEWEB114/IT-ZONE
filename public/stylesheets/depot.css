@@ -228,7 +228,13 @@
 }
 /* END:form */
 
-.locale {
+#locale {
 	float:right;
 	padding-top: 0.2em;
+	font: small-caps 10px/10px "Times New Roman",serif
+}
+
+.customer_logout{
+	float:right;
+	padding-top: 0.1em;
 }

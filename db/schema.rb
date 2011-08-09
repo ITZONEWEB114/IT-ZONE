@@ -10,9 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728072850) do
+ActiveRecord::Schema.define(:version => 20110808060127) do
 
   create_table "carts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "hash_password"
+    t.string   "salt"
+    t.string   "email"
+    t.string   "active_code"
+    t.boolean  "is_activated"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

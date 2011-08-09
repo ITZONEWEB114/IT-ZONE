@@ -1,5 +1,6 @@
 class StoreController < ApplicationController
   skip_before_filter :authorize
+  skip_before_filter :customer_authorize
   def index
 	
 	

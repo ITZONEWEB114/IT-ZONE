@@ -13,13 +13,15 @@
 <!-- END:head -->
 <body id="store">
   <div id="banner">
-  	<%= form_tag store_path, :class => 'locale' do%>
+  	<div id="locale">
+  	<%= form_tag store_path do%>
  		<%= select_tag 'set_locale',
  			options_for_select(LANGUAGES, I18n.locale.to_s),
  			:onchange => 'this.form.submit()'%>
- 	<%= submit_tag 'submit'%>
- 	<%= javascript_tag "$$('.locale input').each(Element.hide)"%>
  	<% end %>
+ 	<%= button_to "logout", customer_admin_logout_url, :method => :get%>
+ 	<%= button_to "login", customer_admin_login_url,:method => :get%>
+ 	</div>
  	
 	<%= image_tag("logo.png") %>
 	<%= @page_title || t('.title') %><!-- <label id="code.depot.e.title"/> -->

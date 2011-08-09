@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_filter :set_i18n_locale_from_params
+  before_filter :record_current_url
   before_filter :authorize
+  before_filter :customer_authorize
   protect_from_forgery
   
   private 
@@ -21,6 +23,17 @@ class ApplicationController < ActionController::Base
 	  end
 	end
 	
+	def customer_authorize
+	  unless Customer.find_by_id(session[:customer_id])
+	    redirect_to customer_admin_login_url, :notice => "Please log in"
+	  end
+	end
+	
+	def record_current_url
+	  unless request.fullpath == customer_admin_login_path || request.fullpath == login_path
+	    session[:page] = request.fullpath
+	  end
+	end
 	def set_i18n_locale_from_params
 	  if params[:locale]
 	    if I18n.available_locales.include?(params[:locale].to_sym)
