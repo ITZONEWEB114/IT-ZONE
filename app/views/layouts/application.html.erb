@@ -19,10 +19,13 @@
  			options_for_select(LANGUAGES, I18n.locale.to_s),
  			:onchange => 'this.form.submit()'%>
  	<% end %>
- 	<%= button_to "logout", customer_admin_logout_url, :method => :get%>
- 	<%= button_to "login", customer_admin_login_url,:method => :get%>
+ 	<% if session[:customer_id]%>
+ 		<%= button_to "logout", customer_admin_logout_url, :method => :get%>
+ 	<% else %>
+ 		<%= button_to "login", customer_admin_login_url,:method => :get%>
+ 		
+ 	<% end %>
  	</div>
- 	
 	<%= image_tag("logo.png") %>
 	<%= @page_title || t('.title') %><!-- <label id="code.depot.e.title"/> -->
   </div>
