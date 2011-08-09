@@ -12,8 +12,8 @@ Depot::Application.configure do
     :port           =>  587,
     :domain         =>  "domain.of.sender.net",
     :authentication =>  "plain",
-    :user_name      =>  "liangzhenxiangsysu@gmail.com",
-    :password       =>  "0701101139",
+    :user_name      =>  "FancyHem",
+    :password       =>  "",
     :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => "localhost:3000" }

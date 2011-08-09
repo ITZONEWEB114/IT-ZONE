@@ -1,15 +1,32 @@
-<div id=commentList>
-<p>
-  <%= comment.customer_name %> <%= comment.time %>
-</p>
-
-<p>
-  <b>Star:</b>
-  <%= comment.star%>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= comment.description %>
-</p>
-</div>
+<table width="100%" id=comment>
+<tr>
+	<td width="80%">		
+		 <% rate = comment.star%>
+		 <% if(rate==0) %>
+		   <img src="/images/0.png"/>
+		 <% end %>
+		 <%if(rate==1) %>
+			<img src="/images/1.png"/>
+		 <% end %>
+		 <%if(rate==2)%>
+			<img src="/images/2.png"/>
+		<%end%>
+		<%if(rate==3)%>
+			<img src="/images/3.png"/>
+		<% end %>
+		<%if(rate==4)%>
+		    <img src="/images/4.png"/>
+		<% end %>
+		<%if(rate==5) %>
+		    <img src="/images/5.png"/>
+		 <% end %>
+				
+		<p><%= comment.description %></p>
+  			 <%= comment.time %>
+		
+	</td>
+	<td>
+		 <%= comment.customer_name %> 			
+	</td>
+</tr>
+</table>

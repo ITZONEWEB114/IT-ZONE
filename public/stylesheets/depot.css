@@ -68,13 +68,16 @@
 /* Styles for main page */
 
 #banner {
-  background: #9c9;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
-  text-align: center;
+	height:134px;
+    background:url() no-repeat scroll 0 0 transparent;
+    max-width:1258px;
+    min-width:980px;
+    margin:0 auto;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+    font: small-caps 40px/40px "Times New Roman", serif;
+    color: black;
+    text-align: center;
 }
 
 #banner img {
@@ -98,17 +101,21 @@
   padding-left: 1em;
   padding-bottom: 1em;
   width: 16em;
-  background: #141;
+  background:#FFFFFF;
 }
 
 #side a {
-  color: #bfb;
+  color: #000066;
   font-size: small;
 }
 /* END:mainlayout */
 
 /* An entry in the store catalog */
 
+#store{
+	background:url(/images/bg0.png) repeat-x scroll 0 0 #f0f5f5;
+    border-bottom:1px solid #d9dede;
+}
 #store  .entry {
   overflow: auto;
   margin-top: 1em;
@@ -182,7 +189,7 @@
 
 #cart, #cart table {
   font-size: smaller;
-  color:     white;
+  color:     black;
 }
 
 #cart table {
@@ -238,18 +245,188 @@
 	float:right;
 	padding-top: 0.1em;
 }
+/*
+ * be used in product.show.html.erb
+ */
+#content_product_rt {
+	float: right;
+	margin: 0;
+	padding: 14px 22px 22px 0px;
+	width: 75%;
+}
 
-#addComment{
+#actions {
 	float: right;
-	margin-right: 0.5em;
-	
+	margin: 0 0 10px 0;
+	padding: 0px 0 10px 15px;
+	width: 330px;
 }
-#commentList{
-	border-bottom: 1px solid #999;
-	padding: 0px 10px 0px 10px;
+
+.buybuttonswidget .button_set div.shopping_cart_button_line:last-child  {border-bottom:1px solid #ccc;}
+
+.buybuttonswidget.yellow h1, .buybuttonswidget.yellow .header {
+font-weight:normal;
+font-family:helvetica,sans-serif;
+padding: 5px 0 15px 15px;
+background: url(/images/yellow-box-top.png) top left no-repeat;
 }
-#userDetail
-{
-	float: right;
-	margin-right: 0.5em;
+
+.buybuttonswidget.gray h1, .buybuttonswidget.gray .header {
+font-weight:normal;
+font-family:helvetica,sans-serif;
+font-size: 17px;
+padding: 5px 0 5px 15px;
+background: #fff;
+-moz-border-radius: 5px 5px 0 0; 
+-webkit-border-radius: 5px 5px 0 0; 
+border-radius: 5px 5px 0 0; 
+}
+
+.buybuttonswidget.yellow .oreilly_buy_buttons, .buybuttonswidget.yellow .oreilly_rough_cuts {
+border:none; 
+padding: 0;
+width:320px;
+background: url(/images/yellow-box-bot.png) bottom left no-repeat;
+}
+
+.buybuttonswidget.gray .oreilly_buy_buttons, .buybuttonswidget.gray .em-option {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+.buybuttonswidget.yellow .button_set {
+padding: 0 5px 5px;
+border-bottom: 1px solid #CCC;
+}
+
+.buybuttonswidget.yellow .oreilly_rough_cuts .button_set {
+padding: 0 0 15px 15px;
+}
+
+.buybuttonswidget.gray .oreilly_rough_cuts .button_set {
+padding-bottom: 6px;
+}
+
+.buybuttonswidget.yellow .button_set {
+padding: 0 5px 5px;
+}
+
+.buybuttonswidget.yellow .oreilly_rough_cuts .button_set {
+padding: 0 0 15px 15px;
+}
+
+.buybuttonswidget.gray .oreilly_rough_cuts .button_set {
+padding-bottom: 6px;
+}
+
+
+.buybuttonswidget.yellow .test-strong, .buybuttonswidget.gray .test-strong {
+font-weight: bold;
+}
+
+
+h2#title {
+	display: block;
+	font-size: 20px;
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+}
+
+h2.subtitle {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px;
+	line-height: 16px;
+}
+.buttons {
+	float: left;
+	height: 20px;
+	position: relative;
+	margin: 5px 0;
+}
+
+.buttons .add_to_cart {
+	position: absolute; 
+	left: 107px;
+	top: 0; 
+	width: 82px; 
+	height: 20px;
+}
+
+.buttons .add_comments {
+	left: 190px;
+	position: absolute;
+	top: 0;
+}
+
+#description {
+margin: 0 0 22px 0;
+padding: 0;
+clear: left;
+width: 400px;
+}
+#short-description {
+margin: 7px 0 11px 0;
+padding: 0;
+}
+
+a#fulldescButton {
+display: none;
+}
+
+.content-subtitle, .book-subtitle {
+clear: left;
+color: #333333;
+font-size: 16px;
+font-weight: normal;
+line-height: 20px;
+margin: 0 0 11px;
+padding: 0;
+border-bottom: 1px solid #CCC;
+}
+
+#content_product_lt {
+float: left;
+padding: 10px 0 0 10px;
+width: 20%;
+}
+
+#cover-block {
+float: left;
+padding: 0;
+margin: 0 0 7px 0;
+position: relative;
+}
+
+ul#browsebook {
+list-style-image: none;
+list-style-position: outside;
+list-style-type: none;
+}
+
+ul#browsebook, li.coverimage {
+border: 0 none;
+display: block;
+margin: 0;
+padding: 0;
+}
+
+#share{
+float:left;
+padding: 0;
+margin: 0 0 7px 0;
+position: relative;
+text-align: center;
+padding: 0;
+clear: both;
+}
+
+/*
+ * be used in _comment.html.erb
+ */
+#comment{
+   border-bottom: 1px solid #CCC;
+   margin-bottom: 1em;
 }

@@ -1,34 +1,79 @@
 <!-- <p id="notice"><%= notice %></p>-->
- <table>
- <tr>
- 	<td>
- <%= image_tag(@product.image_url) %>
- </td>
+<div id="content_product_rt">
+	<div id = "actions">
+		<div class = "buybuttonswidget yellow">
+			<div class ="oreilly_buy_buttons">
+				<div class="header">
+					<span class="test-strong">Recommend</span>
+				</div>
+				<div class="book_set">
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class ="product-metadata">
+		<h2 id ="title"> <%= @product.title %></h1>
+		<dl><b>Price:</b><%= @product.price %></dl>
+		<dl><b>Author:</b></dl>
+		<dl><b>Publisher:</b></dl>
+		<dl><b>Page:</b></dl>
+		<div class="buttons">
+			<span class="add_to_cart"><%= button_to 'Add to cart', line_items_path(:product_id => @product),:remote => true %></span>
+			<span class="add_comments"><%= button_to 'Add Comment', new_product_comment_url(@product),:method=>'get'%></span>
+		</div>
+	</div>
+	<div id="description" class="page_toc_entry">
+		<div class="content-subtitle">Description</div>
+		<div id ="short-description">
+			<div>
+				<p><%= truncate_with_more @product.description, 200 %></p>
+				<a id="fulldescButton" style="display:block;" class="rollup">More Description</a>
+			</div>
+			<div id="fulldesc" style="display: none;"></div>
+		</div>
+	</div>
+    <div id="reviews" class="page_toc_entry">
+		<div class="content-subtitle" id="rr">Customer Comments</div>
+    	<div class="pr-content-wrapper">
+    		<div class="pr-review-wrap">
+    			<% if @comments %>
+				<%= render @comments%>
+				<% end %>
+    		</div>
+    	</div>
+    </div>
+</div>
+<div id=content_product_lt>
+	<div id="cover-block">
+		<ul id="browsebook">
+			<li class="coverimage">
+				 <%= image_tag(@product.image_url) %>
+			</li>
+		</ul>
+	</div>
+	<div id ="share">
+		分享到：
+      <a title="分享到QQ空间" href="javascript:(function(){window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+ encodeURIComponent(location.href)+ '&title='+encodeURIComponent(document.title),'_blank');})()">
+      <img border="0" alt="Qzone分享" src="/images/ico_Qzone.gif" /></a>  
+      <a title="新浪微博分享" href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href)+'&source=bookmark','_blank','width=450,height=400');})()">
+      <img border="0" alt="新浪微博分享" src="/images/ico_sina.gif" /></a> 
+      <a title="分享到网易微博" href="javascript:(function(){window.open('http://t.163.com/article/user/checkLogin.do?link=http://news.163.com/&source='+'土豆网'+ '&info='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank','width=510,height=300');})()">
+      <img border="0" alt="网易微博分享" src="/images/ico_163_16.gif" /></a>  
+      <a title="分享到人人网" href="javascript:void((function(s,d,e)
+      {if(/xiaonei\.com/.test(d.location))return;var%20f='http://share.xiaonei.com/share/buttonshare.do?link=',u=d.location,l=d.title,p=[e(u),'&title=',e(l)].join('');function%20a(){if(!window.open([f,p].join(''),'xnshare',['toolbar=0,status=0,resizable=1,width=626,height=436,left=',(s.width-626)/2,',top=',(s.height-436)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent));">
+      <img border="0" alt="分享到人人网" width="16" height="16" src="/images/ico_renren.gif" /></a>
+      <a title="推荐给豆瓣友邻" href="javascript:var u='http://www.douban.com/recommend/?url='+location.href+'&title='+encodeURIComponent(document.title);window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)">
+      <img border="0" alt="推荐给豆瓣友邻" src="/images/ico_dou.gif" /></a>  	
 
-<td><p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
+	</div>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-<%= button_to 'Add to cart', line_items_path(:product_id => @product),
-			:remote => true %>
-<p id =addComment>
-	<%= button_to 'Add Comment', new_product_comment_url(@product),:method=>'get'%>
-</p>
-</td>
-</tr>
-</table>
-<% if @comments %>
-<%= render @comments%>
-<% end %>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
