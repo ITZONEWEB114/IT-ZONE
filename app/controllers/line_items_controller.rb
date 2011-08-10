@@ -1,6 +1,5 @@
 class LineItemsController < ApplicationController
   skip_before_filter :authorize, :only => [:create, :destroy]
-  skip_before_filter :customer_authorize, :only => [:create, :destroy]
   # GET /line_items
   # GET /line_items.xml
   def index

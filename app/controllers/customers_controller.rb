@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-  skip_before_filter :customer_authorize
   skip_before_filter :authorize, :only => [:new, :create, :update]
   # GET /customers
   # GET /customers.xml

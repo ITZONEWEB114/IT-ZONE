@@ -26,13 +26,19 @@
  		
  	<% end %>
  	</div>
+ 	
+ 	<%= form_tag products_path do%>
+ 		<%= text_area_tag 'search'%>
+ 		<%= submit_tag "submit"%>
+ 	<% end %>
+ 	
 	<%= image_tag("logo.png") %>
 	<%= @page_title || t('.title') %><!-- <label id="code.depot.e.title"/> -->
   </div>
   <div id="columns">
 	<div id="side">
 		<% if @cart %>
-		<% hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
+		<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
 			<%= render @cart%>
 		<% end %>
 		<% end %>

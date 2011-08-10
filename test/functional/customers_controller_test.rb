@@ -3,6 +3,12 @@ require 'test_helper'
 class CustomersControllerTest < ActionController::TestCase
   setup do
     @customer = customers(:one)
+    @input_attributes = {
+       :name                  => "sam",
+       :password              => "private",
+       :password_confirmation => "private",
+       :email                 => "111@email.com"
+    }
   end
 
   test "should get index" do
@@ -18,10 +24,10 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, :customer => @customer.attributes
+      post :create, :customer => @input_attributes
     end
 
-    assert_redirected_to customer_path(assigns(:customer))
+    assert_redirected_to store_url
   end
 
   test "should show customer" do

@@ -20,5 +20,10 @@ class ActiveSupport::TestCase
   
   def setup
     login_as :one if defined? session
+    customer_login :one if defined? session
+  end
+  
+  def customer_login(customer)
+    session[:customer_id] = customers(customer).id
   end
 end

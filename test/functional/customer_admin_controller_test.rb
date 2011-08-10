@@ -1,14 +1,16 @@
 require 'test_helper'
 
-class CustomerAdminControllerTest < ActionController::TestCase
+class CustomerAdminControllerTest < ActionController::TestCase  
   test "should get login" do
     get :login
     assert_response :success
   end
-
-  test "should get register" do
-    get :register
-    assert_response :success
+  
+  test "should login" do
+    liangzhenxiang = customers(:one)
+    post:judge, :name => liangzhenxiang.name, :password => '1'
+    assert_redirected_to session[:page]
+    assert_equal liangzhenxiang.id, session[:customer_id]
   end
 
   test "should get confirm" do

@@ -89,4 +89,13 @@ class ProductsController < ApplicationController
       format.xml { render :xml => @product}
     end
   end
+  
+  def search
+    @products = Product.find(:all, condition=>["title like?","%"+params["search"]+"%"])
+    
+    respond_to do |format|
+      format.html { redirect_to(products_url) }
+      format.xml  { head :ok }
+    end
+  end
 end

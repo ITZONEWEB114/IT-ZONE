@@ -1,12 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+<% SALT = "NaC1" unless defined?(SALT) %>
+
 one:
-  name: MyString
-  hash_password: MyString
-  salt: MyString
-  email: MyString
-  active_code: MyString
-  is_activated: false
+  name: liangzhenxiang
+  hash_password: <%= Customer.encrypt_password('1', SALT)%>
+  salt: <%= SALT %>
+  email: acb@qq.com
+  active_code: 111
+  is_activated: true
 
 two:
   name: MyString

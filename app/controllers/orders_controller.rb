@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  skip_before_filter :authorize, :only => [:new, :create,:index]
-  skip_before_filter :customer_authorize, :only => [:index]
+  before_filter :customer_authorize, :only => [:new, :create]
+  skip_before_filter :authorize, :only => [:new, :create]
   # GET /orders
   # GET /orders.xml
   def index

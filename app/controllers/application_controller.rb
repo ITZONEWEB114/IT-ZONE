@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_i18n_locale_from_params
   before_filter :record_current_url
   before_filter :authorize
-  before_filter :customer_authorize
   protect_from_forgery
   
   private 
