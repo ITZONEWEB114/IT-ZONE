@@ -1,6 +1,6 @@
 class CreateComments < ActiveRecord::Migration
   def self.up
-    create_table :comments do |t|
+    create_table :comments, :force => true  do |t|
       t.string :customer_name
       t.integer :product_id
       t.string :time
