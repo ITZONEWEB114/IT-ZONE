@@ -31,14 +31,29 @@
 		<div id="top_title">
   			<%= @page_title || t('.title') %>
  	 	</div>
+ 
  	 <div id="top_buttons">
- 	 	<a href="http://localhost:3000/">Home</a>
- 	 	<a href="http://localhost:3000/">Questions</a>
- 	 	<a href="http://localhost:3000/">News</a>
- 	 	<a href="http://localhost:3000/">Contact us</a>
- 	 	
-
- 	 </div>
+ 	 	<table style="border-spacing: 0px;">
+ 			<tr>
+ 				<td>
+ 	 				<a href="http://localhost:3000/">Home</a>
+ 	 				<a href="http://localhost:3000/">Questions</a>
+ 				 	<a href="http://localhost:3000/">News</a>
+ 	 				<a href="http://localhost:3000/">Contact us</a>
+ 	 			</td>
+ 	 			<!-- SEARCH FORM IS HERE-->
+ 	 			<form>
+ 	 				<td style="padding-left: 20em;padding-top:3px;">	
+ 	 					<input type="text" class="searchSelect" name="field-keywords" value="" size="40"> 			
+ 	 				</td>
+ 	 				<td style="padding-top:3px;">	
+ 	 					<%= button_to 'search'%>
+ 	 				</td>
+ 	 			</form>
+ 	 			<!-- END SERACH FORM-->
+ 	 		</tr>
+ 		</table>
+ 	 </div>	
  </div>
   <div id="columns">
 	<div id="side">
