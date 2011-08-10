@@ -9,11 +9,35 @@
 <!-- END_HIGHLIGHT -->
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %><!-- <label id="code.csrf"/> -->
+  <script type=text/javascript>
+  	function searchFocus() {
+    var $this = $("#search_query");
+    if ($this.val() == $this.attr('title')) {
+        $this.val("");
+        $("#search_btn").addClass("typing");
+        $this.parent().addClass("highlight");
+    } else if ($this.val() !== "" && $this.val() !== $this.attr('title')) {
+        $("#search_btn").addClass("typing");
+        $this.parent().addClass("highlight");
+    }
+}
+
+function searchBlur() {
+    var $this = $("#search_query");
+    if ($this.val() == "") {
+        $this.val($this.attr('title'));
+        $("#search_btn").removeClass("typing");
+        $this.parent().removeClass("highlight");
+    } else {
+        $("#search_btn").removeClass("typing");
+        $this.parent().removeClass("highlight");
+    }
+}
+  </script>
 </head>
 <!-- END:head -->
 <body id="store">
   <div id="banner">
-  
   		<div id="locale">
   		<%= form_tag store_path do%>
  		<%= select_tag 'set_locale',
@@ -33,7 +57,13 @@
  	 	</div>
  
  	 <div id="top_buttons">
- 	 	<table style="border-spacing: 0px;">
+ 	 	<!-- SEARCH FORM IS HERE-->
+ 	 	<form id=search_box>			
+ 	 		<input type="text" autocomplete="off" id="search_query" name="key" onblur="searchBlur();" onclick="searchFocus();">
+ 	 		<input type="submit" id="search_btn" class="" title="搜索" value="">
+ 	 	</form>
+ 	 	<!-- END SERACH FORM-->
+ 	 	<table >
  			<tr>
  				<td>
  	 				<a href="http://localhost:3000/">Home</a>
@@ -41,18 +71,10 @@
  				 	<a href="http://localhost:3000/">News</a>
  	 				<a href="http://localhost:3000/">Contact us</a>
  	 			</td>
- 	 			<!-- SEARCH FORM IS HERE-->
- 	 			<form>
- 	 				<td style="padding-left: 20em;padding-top:3px;">	
- 	 					<input type="text" class="searchSelect" name="field-keywords" value="" size="40"> 			
- 	 				</td>
- 	 				<td style="padding-top:3px;">	
- 	 					<%= button_to 'search'%>
- 	 				</td>
- 	 			</form>
- 	 			<!-- END SERACH FORM-->
  	 		</tr>
  		</table>
+ 	   
+ 	 
  	 </div>	
  </div>
   <div id="columns">

@@ -68,7 +68,7 @@
 /* Styles for main page */
 
 #banner {
-	height:84px;
+	height:89px;
     background:url() no-repeat scroll 0 0 transparent;
     min-width:980px;
     margin:0;
@@ -87,7 +87,7 @@
     text-align: center;
 }
 #top_buttons{
-	height:30px;
+	height:35px;
 	background: url(/images/buttons.png)repeat-x 0 0px;
 	position:relative;
 }
@@ -453,4 +453,34 @@ clear: both;
 #comment{
    border-bottom: 1px solid #CCC;
    margin-bottom: 1em;
+}
+
+#search_box{
+	background: url(/images/search.png) no-repeat scroll 0 0 transparent;
+	float: right;
+	height: 26px;
+	line-height: 26px;
+	margin-right: 3px;
+	margin-top:3px;
+	width: 292px;
+	position: relative;
+	padding: 1px 0 0;
+}
+#search_btn {
+	background: url(/images/search_icon.png) no-repeat scroll center 5px;
+	border: none;
+	float: right;
+	height: 24px;
+	width: 24px;
+	cursor: pointer;
+}
+#search_query {
+	background: none;
+	border: none;
+	font: 12px Arial;
+	height: 18px;
+	width: 260px;
+	float: left;
+	color: #ABABAB;
+	margin: 3px 0 0 2px;
 }
