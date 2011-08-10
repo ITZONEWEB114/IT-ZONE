@@ -9,11 +9,11 @@ Depot::Application.configure do
   
   config.action_mailer.smtp_settings = {
     :address        =>  "smtp.gmail.com",
-    :port           =>  587,
+    :port           =>  25,
     :domain         =>  "domain.of.sender.net",
     :authentication =>  "plain",
-    :user_name      =>  "FancyHem",
-    :password       =>  "",
+    :user_name      =>  "fancyhem",
+    :password       =>  "0883101219",
     :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => "localhost:3000" }

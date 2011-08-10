@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
+    @cart=current_cart
     @comments = Comment.where(:product_id=>@product)
     respond_to do |format|
       format.html # show.html.erb

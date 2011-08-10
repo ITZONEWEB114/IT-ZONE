@@ -13,22 +13,33 @@
 <!-- END:head -->
 <body id="store">
   <div id="banner">
-  	<div id="locale">
-  	<%= form_tag store_path do%>
+  
+  		<div id="locale">
+  		<%= form_tag store_path do%>
  		<%= select_tag 'set_locale',
  			options_for_select(LANGUAGES, I18n.locale.to_s),
  			:onchange => 'this.form.submit()'%>
- 	<% end %>
- 	<% if session[:customer_id]%>
- 		<%= button_to "logout", customer_admin_logout_url, :method => :get%>
- 	<% else %>
- 		<%= button_to "login", customer_admin_login_url,:method => :get%>
- 		
- 	<% end %>
- 	</div>
-	<!--<%= image_tag("logo.png") %>-->
-	<%= @page_title || t('.title') %><!-- <label id="code.depot.e.title"/> -->
-  </div>
+ 		<% end %>
+ 		<% if session[:customer_id]%>
+ 			<%= button_to "logout", customer_admin_logout_url, :method => :get%>
+ 		<% else %>
+ 			<%= button_to "login", customer_admin_login_url,:method => :get%> 		
+ 		<% end %>
+		<!--<%= image_tag("logo.png") %>-->
+        <!-- <label id="code.depot.e.title"/> -->
+		</div>
+		<div id="top_title">
+  			<%= @page_title || t('.title') %>
+ 	 	</div>
+ 	 <div id="top_buttons">
+ 	 	<a href="http://localhost:3000/">Home</a>
+ 	 	<a href="http://localhost:3000/">Questions</a>
+ 	 	<a href="http://localhost:3000/">News</a>
+ 	 	<a href="http://localhost:3000/">Contact us</a>
+ 	 	
+
+ 	 </div>
+ </div>
   <div id="columns">
 	<div id="side">
 		<% if @cart %>

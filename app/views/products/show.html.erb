@@ -27,7 +27,7 @@
 		<dl><b>Publisher:</b></dl>
 		<dl><b>Page:</b></dl>
 		<div class="buttons">
-			<span class="add_to_cart"><%= button_to 'Add to cart', line_items_path(:product_id => @product),:remote => true %></span>
+			<span class="add_to_cart"><%= button_to 'Add to cart', line_items_path(:product_id => @product.id),:remote => true %></span>
 			<span class="add_comments"><%= button_to 'Add Comment', new_product_comment_url(@product),:method=>'get'%></span>
 		</div>
 	</div>
