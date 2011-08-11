@@ -1,5 +1,8 @@
 Depot::Application.routes.draw do
 
+  resources :comments
+
+>>>>>>> master
   get "store/index" 
   
   scope '(:locale)' do
@@ -11,7 +14,9 @@ Depot::Application.routes.draw do
      resources :products do
         get :who_bought, :on => :member
      end
-  
+     resources :products do
+      resources :comments
+     end
      root :to => 'store#index', :as => 'store'
      
      controller :customer_admin do

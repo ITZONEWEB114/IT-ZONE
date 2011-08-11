@@ -1,6 +1,6 @@
 class CreateCustomers < ActiveRecord::Migration
   def self.up
-    create_table :customers do |t|
+    create_table :customers, :force => true  do |t|
       t.string :name
       t.string :hash_password
       t.string :salt
