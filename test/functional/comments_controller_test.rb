@@ -12,7 +12,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new()
     assert_response :success
   end
 
@@ -21,7 +21,7 @@ class CommentsControllerTest < ActionController::TestCase
       post :create, :comment => @comment.attributes
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to store_url
   end
 
   test "should show comment" do

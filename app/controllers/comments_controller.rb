@@ -27,13 +27,38 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @product = Product.find(params[:product_id])
-    @customer = Customer.find(session[:customer_id])
+    if session[:customer_id]
+      @customer = Customer.find(session[:customer_id])
+      login=true
+      has_bought=false
+      @orders = Order.where(:customer_id=>@customer)
+      for order in @orders
+        if order.shipped==true
+           for item in order.line_items
+              if item.product.id==@product.id
+                has_bought=true;
+              end
+            end
+         end
+       end
+     else
+      login=false
+    end  
+   
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
+      if login && has_bought
+        format.html # new.html.erb
+        format.xml  { render :xml => @comment }
+      else
+        if !login
+          format.html {redirect_to(show_product_url(:product_id=>@product), :alert=>'Dear,please login!')}   
+        else
+          format.html {redirect_to(show_product_url(:product_id=>@product), :alert=>'You can not put a comment before you read it and buy it from here.')}
+        end
+      end
     end
-  end
-
+   end
+   
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
@@ -46,7 +71,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
+        format.html { redirect_to(store_url, :notice => 'Comment was successfully created.') }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
@@ -82,4 +107,6 @@ class CommentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+
 end

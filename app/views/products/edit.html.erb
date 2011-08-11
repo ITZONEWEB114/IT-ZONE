@@ -1,6 +1,40 @@
 <h1>Editing product</h1>
 
-<%= render 'form' %>
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_area :customer_name %>
+</div>
+<div class="field">
+    <%= f.label :product_id  %><br />
+    <%= f.text_area :product_id  %>
+</div>
+<div class="field">
+    <%= f.label :time %><br />
+    <%= f.text_area :time %>
+</div>
+<div class="field">
+    <%= f.label :star %><br />
+    <%= f.text_area :star %>
+</div>
+<div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+</div>
+
+<div class="actions">
+    <%= f.submit %>
+</div>
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

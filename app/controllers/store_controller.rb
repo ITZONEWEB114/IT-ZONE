@@ -6,7 +6,6 @@ class StoreController < ApplicationController
 		else
 			@products = Product.all
 			@cart = current_cart
-			@hotProducts = Product.find([1,2]);
 		end
   end
 	
@@ -17,6 +16,7 @@ class StoreController < ApplicationController
 			redirect_to store_path, :notice => "Product not found"
 		end
 		@cart = current_cart
+    @comments = Comment.where(:product_id=>@product)
 	end
 
 end

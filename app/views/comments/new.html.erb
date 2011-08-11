@@ -1,5 +1,146 @@
 <h1>New comment</h1>
+<% if notice%>
+<p id="notice"><%= notice %></p>
+<% end %>
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input name="comment[product_id]" id="comment_product_id" type="hidden" value=<%=@product.id%>>
+  <input name="comment[time]" id="comment_time" type="hidden" value="<%=Time.now%>" >
+  <input name="comment[customer_name]" id="comment_customer_name" type="hidden" value=<%= @customer.name%> >
+ 
+<!--   <div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_field :customer_name %>
+ </div>
+ -->
+  <div class="field">
+ <input id="comment_star" name="comment[star]" value="0" type="hidden">
+<span class="number">Rating</span><br />
+ <span class="Select"> 
+ <a onmouseover="javascript:setProfix('star_');showStars(1,'comment_star');" onmouseout="javascript:setProfix('star_');clearStars('comment_star');" href="javascript:setProfix('star_');setStars(1,'comment_star');">
+ <img id="star_1" title="差(1)" src="/images/icon_star_1.gif"></a>
+ <a onmouseover="javascript:setProfix('star_');showStars(2,'comment_star');" onmouseout="javascript:setProfix('star_');clearStars('comment_star');" href="javascript:setProfix('star_');setStars(2,'comment_star');">
+ <img id="star_2" title="一般(2)" src="/images/icon_star_1.gif"></a>
+ <a onmouseover="javascript:setProfix('star_');showStars(3,'comment_star');" onmouseout="javascript:setProfix('star_');clearStars('comment_star');" href="javascript:setProfix('star_');setStars(3,'comment_star');">
+ <img id="star_3" title="好(3)" src="/images/icon_star_1.gif"></a>
+ <a onmouseover="javascript:setProfix('star_');showStars(4,'comment_star');" onmouseout="javascript:setProfix('star_');clearStars('comment_star');" href="javascript:setProfix('star_');setStars(4,'comment_star');">
+ <img id="star_4" title="很好(4)" src="/images/icon_star_1.gif"></a>
+ <a onmouseover="javascript:setProfix('star_');showStars(5,'comment_star');" onmouseout="javascript:setProfix('star_');clearStars('comment_star');" href="javascript:setProfix('star_');setStars(5,'comment_star');">
+ <img id="star_5" title="非常好(5)" src="/images/icon_star_1.gif"></a> 
+ </span>
+ </div>    
 
-<%= link_to 'Back', comments_path %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<!-- star script-->
+ <script language="javascript">
+       var sArray = new Object;
+       sArray[0] = new Image;
+       sArray[0].src = "/images//icon_star_1.gif";
+       for (var i=1; i<6; i++) {
+           sArray[i] = new Image();
+           sArray[i].src = "/images/icon_star_2.gif";
+           }
+       var starTimer;
+       var pro ; 
+       var rate ; 
+       function initStar() {
+           try {
+               setProfix("star_");
+               setStars(document.getElementById("comment_star").value,'comment_star');
+               } catch(e){
+                   } 
+               }
+       function showStars(starNum,rate) {
+           try {
+               clearStarTimer();
+               greyStars();
+               colorStars(starNum);
+               } catch(e){}
+               //setStars(starNum,rate);
+               }
+       function setProfix(profix) {
+           pro = profix ;
+           }
+       function colorStars(starNum) {
+           try {
+               for (var i=1; i <= starNum; i++) {
+                   var tmpStar = document.getElementById(pro + i);
+                   tmpStar.src = sArray[starNum].src;
+                   }
+               } catch(e){}
+           }
+       function greyStars() {
+           try {
+               for (var i=1; i<6; i++) {
+                   var tmpStar = document.getElementById(pro + i);
+                   tmpStar.src = sArray[0].src;
+                   }
+               } catch(e){}
+           }
+       function greyAll(curpro,currate) {
+           try {
+               document.getElementById(currate).value =""; 
+               for (var i=1; i<6; i++) {
+                   var tmpStar = document.getElementById(curpro + i);
+                   tmpStar.src = sArray[0].src;
+                   }
+               } catch(e){} 
+               }
+       function setStars(starNum,rate) {
+           rate = rate ;
+           try {
+               clearStarTimer();
+               var comment_star = document.getElementById(rate);
+               comment_star.value = starNum;
+               showStars(starNum);
+               } catch(e){} 
+               }
+       function clearStars(currate) {
+           rate = currate ;
+           try {
+               var comment_star = document.getElementById(rate);
+               if (comment_star.value != '') {
+                   setStars(comment_star.value,rate);
+                   } else {
+                       greyStars();
+                       }
+               } catch(e){}
+           }
+       function resetStars() {
+           try {
+               clearStarTimer();
+               var comment_star = document.getElementById(rate);
+               if (comment_star.value != '') {
+                   setStars(comment_star.value,rate);
+                   } else {
+                       greyStars();
+                       }
+               } catch(e){}
+               }
+       function clearStarTimer() {
+           if (starTimer) {
+        	   clearTimeout(starTimer);
+        	   starTimer = null;
+        	   }
+    	   }
+    	   </script>
+

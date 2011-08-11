@@ -4,6 +4,7 @@
 <div class ="hot-widget">
 	<p>HOT</p>
 <table>
+	<% if @hotProduct%>
 	<%for hotOne in @hotProducts%>
 		<tr class="hotline">
 		    <td class="bookImage">
@@ -15,13 +16,14 @@
 		    </td>
 		</tr>
 	<%end%>
+	<%end %>
 </table>
 </div>
 <h1><%= t('.title_html')%></h1>
 <% @products.each do |product| %>
 	<div class="entry">
-	   <%= link_to image_tag(product.image_url), product %>
-	   <h3><%= link_to product.title ,product%></h3>
+	   <%= link_to image_tag(product.image_url), show_product_url(:product_id=>product) %>
+	   <h3><%= link_to product.title ,show_product_url(:product_id=>product)%></h3>
 	   <%=sanitize product.description %>
 	   <div class="price_line">
 		<span class="price"><%= number_to_currency(product.price) %></span>
