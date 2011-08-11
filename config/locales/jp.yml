@@ -1,0 +1,78 @@
+jp:
+  layouts:
+    application:
+      title: "Yokohamaの本棚"
+      home: "トップ"
+      questions: "頼む"
+      news: "ニュース"
+      contact: "お問い合わせ"
+      Order: "オーダー情報"
+      Products: "製品情報"
+      Users: "ユーザー情報"
+      Logout: "ログアウト"
+
+  orders:
+    new:
+      New order: "新しい順"
+      legend: "あなたの詳細を入力してください"
+    form:
+      name: "の名前"
+      address: "住所"
+      email: "Eメールアドレス"
+      pay_type: "お支払い"
+      pay_prompt: "支払い方法をお選び下さい"
+      submit: "注文内容を確認"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "is not include in the list"
+        blank: "can't be blank"
+    models:
+      order: "order"
+  attributes:
+    order:
+      address: "Address"
+      name: "Name"
+      email: "E-mail"
+      pay_type: "pay-type"
+
+  errors:
+    template:
+      body: "There are problems with the following fields"
+      header:
+        one: "1 error prohibited this order from being saved"
+        other: "%{count} errors prohibited this order from being saved"
+
+  thanks: "ご注文をお願い申し上げます"
+  
+  store:
+    index:
+      title_html: "商品カタログ"
+      add_html: "製品を追加"
+
+  carts:
+    cart:
+      title: "ショッピングカート"
+      empty: "クリア"
+      checkout: "チェックアウト"
+      Are you sure?: "あなたは必ずそれを行う？"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+        
+  models:
+    order:
+      Check: "现金"
+      Credit cart: "信用卡"
+      Purchase order: "采购订单"
+      
+
+      
+        
