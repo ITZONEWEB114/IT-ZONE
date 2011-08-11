@@ -66,10 +66,10 @@ function searchBlur() {
  	 	<table >
  			<tr>
  				<td>
- 	 				<a href="http://localhost:3000/">Home</a>
- 	 				<a href="http://localhost:3000/">Questions</a>
- 				 	<a href="http://localhost:3000/">News</a>
- 	 				<a href="http://localhost:3000/">Contact us</a>
+ 	 				<a href="http://localhost:3000/"><%= t('.home')%></a>
+ 	 				<a href="http://localhost:3000/"><%= t('.questions')%></a>
+ 				 	<a href="http://localhost:3000/"><%= t('.news')%></a>
+ 	 				<a href="http://localhost:3000/"><%= t('.contact')%></a>
  	 			</td>
  	 		</tr>
  		</table>
@@ -80,9 +80,9 @@ function searchBlur() {
   <div id="columns">
 	<div id="side">
 		<% if @cart %>
-		<% hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
-			<%= render @cart%>
-		<% end %>
+			<% hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
+				<%= render @cart%>
+			<% end %>
 		<% end %>
 	  <a href="http://www...."><%= t('.home')%></a><br />
 	  <a href="http://www..../faq"><%= t('.questions')%></a><br />
