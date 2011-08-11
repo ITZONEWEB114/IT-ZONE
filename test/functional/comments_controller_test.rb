@@ -3,6 +3,7 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   setup do
     @comment = comments(:one)
+    @product = products(:one)
   end
 
   test "should get index" do
@@ -12,15 +13,14 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
-    assert_response :success
+    get :new,:product_id=>@product.to_param
+    assert_redirected_to show_product_url(:product_id=>@product)
   end
 
   test "should create comment" do
     assert_difference('Comment.count') do
       post :create, :comment => @comment.attributes
     end
-
     assert_redirected_to store_url
   end
 
