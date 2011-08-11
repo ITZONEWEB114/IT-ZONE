@@ -2,7 +2,6 @@ Depot::Application.routes.draw do
 
   resources :comments
 
->>>>>>> master
   get "store/index" 
   
   scope '(:locale)' do
