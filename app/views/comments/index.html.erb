@@ -3,6 +3,9 @@
 <table>
   <tr>
     <th>Product</th>
+    <th>User</th>
+    <th>Title</th>
+    <th>Content</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +14,9 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.product_id %></td>
+    <td><%= comment.user_id %></td>
+    <td><%= comment.title %></td>
+    <td><%= comment.content %></td>
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>

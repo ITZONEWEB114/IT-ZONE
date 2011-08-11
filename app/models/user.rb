@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+	has_many :comments, :dependent => :destroy
+	has_many :orders, :dependent => :destroy
+	
 	validates :name, :presence => true, :uniqueness => true
 	validates :password, :confirmation => true
 	attr_accessor	:password_confirmation

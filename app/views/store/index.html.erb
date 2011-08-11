@@ -1,7 +1,6 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
 <h1><%= t('.title').html_safe %> : <%= link_to t('all'), store_path %><% unless @isAll %> >> <%=link_to t("categories.#{params[:category]}"), store_path(:category => params[:category]) %><% end %></h1>
 
 <div id="productsInStore">

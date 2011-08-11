@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1><%= t('.title').html_safe %> : <%= link_to t('all'), store_path %> >> <%=link_to t("categories.#{@product.category}"), store_path(:category => params[:category]) %></h1>
+<h1><%= t('.title').html_safe %> : <%= link_to t('all'), store_path %> >> <%=link_to t("categories.#{@product.category}"), store_path(:category => params[:category]) %> >> <%= @product.title %></h1>
 
 <div id="productsInStore">
 	<div class="entry">
@@ -14,6 +14,24 @@
 			<span class="price"><%= number_to_currency(@product.price) %></span>
 			<%= button_to t('.add').html_safe, line_items_path(:product_id => @product),
 				:remote => true %>
+			<%= link_to t('.add comment').html_safe,
+			new_comment_path(:product_id => @product) %>
 		</div>
+	</div>
+	<div class="comment">
+		<table>
+			<tr>
+				<th id="user_head">User</th>
+				<th id="comment_head">Comment</th>
+				<th id="time_head">At</th>
+			</tr>
+			<% @product.comments.each do |comment| %>
+				<tr>
+					<td><%= User.find(comment.user_id).name %></td>
+					<td class="comment_title"><%= link_to comment.title, comment_path(comment) %></td>
+					<td><%= comment.updated_at.strftime("%y-%m-%d %k:%M") %></td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
 </div>

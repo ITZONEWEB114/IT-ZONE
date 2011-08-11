@@ -20,6 +20,12 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 	  assert_equal ruby_book, cart.line_items[0].product
 		
 	  get "/orders/new"
+		
+		###
+		assert_redirected_to login_path :locale => I18n.locale
+		post_via_redirect login_path,  :name => 'dave', :password => 'secret'
+		###
+		
 	  assert_response :success
 	  assert_template "new"
 	  

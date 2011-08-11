@@ -1,11 +1,21 @@
 <h3>Dear <%= @order.name %></h3>
 <p>Thank you for your recent order from The Pragmatic Store.</p>
 
-<p>You ordered the following items;</p>
+<p>You ordered the following items in <%= link_to "Order# #{@order.id}", present_order_url(@order, :locale=>I18n.locale) %> :</p>
 
 <table>
-	<tr><th colspan="2">Qty</th><th>Description</th></tr>
+	<tr>
+		<th style="width: 4em">Qty</th>
+		<th style="width: 20em">Title</th>
+		<th style="width: 6em">Price</th>
+	</tr>
+	
 	<%= render :partial => "line_items/line_item_in_mail", :collection => @order.line_items %>
+
+	<tr>
+		<td colspan="2", style="text-align: right" >Total</td>
+		<td style="text-align: right; font-weight: bold; border-top: 2px olive solid"><%= number_to_currency(@order.total_price) %></td>
+	</tr>
 </table>
 
-<p>We'll send you a separate e-mail when your order ships.</p>
+<p>We'll send you a separate e-mail when your order ships and you can view your order status <%= link_to 'here', present_order_url(@order, :locale=>I18n.locale) %>&nbsp;at anytime.</p>

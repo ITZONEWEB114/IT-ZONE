@@ -46,7 +46,7 @@ Depot::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  config.action_mailer.default_url_options = { :host => "172.18.34.156:11300", :locale => :es }
+  config.action_mailer.default_url_options = { :host => "172.18.34.156:11300" }
   config.action_mailer.smtp_settings={
 	:address => "smtp.gmail.com",
 	:port => 587,

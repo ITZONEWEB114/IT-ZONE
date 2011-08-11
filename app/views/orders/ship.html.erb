@@ -1,0 +1,63 @@
+<%= form_for @unshipped_order do |f| %>
+	<% if @unshipped_order.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= t('errors.template.header', :count=>@unshipped_order.errors.size, :model=>t('activerecord.models.order')).html_safe %></h2>
+			<p><%= t('errors.template.body') %></p>
+			<ul>
+			<% @unshipped_order.errors.full_messages.each do |msg| %>
+				<li><%= raw msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	
+	
+	<h3>Order#: <%= @unshipped_order.id %> by <%= link_to @user.name, @user %>, user id is : <%= @user.id %>.</h3>
+	
+	<div>
+		<%= f.label :name, t('.name')+":" %>
+		<%= f.text_field :name, :size => 40 %>
+	</div>
+	
+	<div>
+		<%= f.label :address, t('.address').html_safe+":" %>
+		<%= f.text_area :address, :rows => 3, :cols => 40 %>
+	</div>
+	
+	<div>
+		<%= f.label :email, t('.e-mail')+":" %>
+		<%= f.email_field :email, :size => 40 %>
+	</div>
+	
+	<div>
+		<%= f.label :pay_type, t('.pay_type')+":" %>
+		<%=
+			f.select :pay_type,
+						pay_types,
+						:prompt => t('.pay_prompt').html_safe
+		%>
+	</div>
+	
+	<div>
+		<%= f.label :shipped %>
+		<%= f.check_box :shipped %>
+	</div>
+	
+	<div>
+		<%= f.label :ship_date %>
+		<%= f.date_select :ship_date, :include_blank => true, :prompt => true %>
+	</div>
+	
+	<div>
+		<%= f.label :express_company %>
+		<%= f.text_field :express_company, :size => 40 %>
+	</div>
+	
+	<div>
+		<%= f.label :express_number %>
+		<%= f.text_field :express_number, :size => 40 %>
+	</div>
+	
+	<span><%= f.submit "Ship & Next" %>&nbsp;|&nbsp;<%= link_to "Ignore & Next", ship_orders_path(:previous_id => @unshipped_order.id), :confirm => "Are you sure the ignore the changes and ship next order ?" %>&nbsp;|&nbsp;<%= link_to "Back to Orders", orders_path, :confirm => "Are you sure the ignore the changes and move back to orders ?" %></span>
+<% end %>

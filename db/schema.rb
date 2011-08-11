@@ -10,9 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802005726) do
+ActiveRecord::Schema.define(:version => 20110809063743) do
 
   create_table "carts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "product_id"
+    t.string   "user_id"
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,16 +42,21 @@ ActiveRecord::Schema.define(:version => 20110802005726) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.boolean  "shipped",         :default => false
+    t.date     "ship_date"
+    t.string   "express_company"
+    t.string   "express_number"
   end
 
   create_table "products", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price"
+    t.decimal  "price",       :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",    :default => "Default"
+    t.string   "category",                                   :default => "Default"
   end
 
   create_table "users", :force => true do |t|

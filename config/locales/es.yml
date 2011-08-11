@@ -68,6 +68,7 @@ es:
     index: &store_index
       title:       "Su Cat&aacute;logo de Pragmatic"
       add:         "A&ntilde;adir al Carrito"
+      add comment: "Añadir comentario"
     show:
       *store_index
       

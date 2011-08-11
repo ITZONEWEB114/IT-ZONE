@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
 	default_scope :order => 'title'
 	has_many :line_items
 	has_many :orders, :through => :line_items
+	has_many :comments, :dependent => :destroy
 	
 	CATEGORIES = [ "Default",		"Arts & Photography", "Audiobooks", "Audible Audiobooks", "Biographies & Memoirs", "Business & Investing", "Calendars", "Children's Books", "Christian Books", "Comics & Graphic Novels", "Computers & Internet", "Cooking, Food & Wine", "Crafts & Hobbies", "Entertainment", "Gay & Lesbian", "Health, Mind & Body", "History", "Home & Garden", "Literature & Fiction", "Mystery & Thrillers", "Nonfiction", "Outdoors & Nature", "Parenting & Families", "Politics", "Professional & Technical", "Puzzles & Games", "Rare & Collectible Books", "Reference", "Religion & Spirituality", "Romance", "Science", "Science Fiction & Fantasy", "Self-Help", "Sports", "Teens", "Textbooks", "Travel" ]
 	

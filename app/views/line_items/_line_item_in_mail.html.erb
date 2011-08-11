@@ -1,5 +1,5 @@
 <tr>
-	<td><%= line_item_in_mail.quantity %>&times;</td>
-	<td><%= link_to line_item_in_mail.product.title, show_product_url(:product_id => line_item_in_mail.product, :locale=>I18n.locale) %></td>
-	<td class="item_price"><%= number_to_currency(line_item_in_mail.total_price) %></td>
+	<td style="text-align: center"><%= line_item_in_mail.quantity %>&times;</td>
+	<td style="text-align: center"><%= link_to line_item_in_mail.product.title, show_product_url(:product_id => line_item_in_mail.product, :locale=>I18n.locale) %></td>
+	<td  style="text-align: right"><%= number_to_currency(line_item_in_mail.total_price) %></td>
 </tr>

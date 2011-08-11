@@ -1,9 +1,19 @@
 <h3>Pragmatic Order Shipped</h3>
-<p>This is just to let you know that we've shipped your recent order:</p>
+<p>We sent this email to let you know that we've shipped or amended your recent <%= link_to "Order# #{@order.id}", present_order_url(@order, :locale=>I18n.locale) %> :</p>
 
 <table>
-	<tr><th colspan="2">Qty</th><th>Description</th></tr>
-	<% @order.line_items.each do |lien_item| %>
+	<tr>
+		<th style="width: 4em">Qty</th>
+		<th style="width: 20em">Title</th>
+		<th style="width: 6em">Price</th>
+	</tr>
+	
 	<%= render :partial => "line_items/line_item_in_mail", :collection => @order.line_items %>
-	<% end %>
+
+	<tr>
+		<td colspan="2", style="text-align: right" >Total</td>
+		<td style="text-align: right; font-weight: bold; border-top: 2px olive solid"><%= number_to_currency(@order.total_price) %></td>
+	</tr>
 </table>
+
+<p>We'll send you an e-mail if your order is shipped or amended and you can view your order status <%= link_to 'here', present_order_url(@order, :locale=>I18n.locale) %>&nbsp;at anytime.</p>

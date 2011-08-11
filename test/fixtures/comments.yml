@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  product_id: 1
+  product_id: MyString
+  user_id: MyString
+  title: MyString
+  content: MyText
 
 two:
-  product_id: 1
+  product_id: MyString
+  user_id: MyString
+  title: MyString
+  content: MyText

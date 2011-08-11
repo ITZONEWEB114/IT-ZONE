@@ -1,4 +1,5 @@
 Depot::Application.routes.draw do
+
   get 'admin' => 'admin#index'
   
   
@@ -10,7 +11,10 @@ Depot::Application.routes.draw do
 
 	scope '(:locale)' do
 		resources :users
-		resources :orders
+		resources :orders do
+			get 'present', :on => :member
+			get 'ship', :on => :collection
+		end
 		resources :line_items
 		resources :carts
 		resources :products do
@@ -20,6 +24,7 @@ Depot::Application.routes.draw do
 			post	'search_product' => :search
 			get		'show_product' => :show
 		end
+		resources :comments
 		root :to => 'store#index', :as => 'store'
 	end
 	

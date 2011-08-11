@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
   # GET /comments/new.xml
   def new
     @comment = Comment.new
+		flash.now[:notice] = "Make sure you have bought the product before you comment it."
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,8 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
+		@user=current_user
+    @comment = Comment.new(params[:comment].merge!({:user_id=>@user.id}))
 
     respond_to do |format|
       if @comment.save

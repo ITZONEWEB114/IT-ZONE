@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_filter :set_i18n_locale_from_params
+	before_filter :backtrack_path
   before_filter :authorize
   protect_from_forgery
   
@@ -12,12 +13,22 @@ class ApplicationController < ActionController::Base
 		session[:cart_id] = cart.id
 		cart
 	end
+	
+	def current_user
+		User.find_by_id(session[:user_id])
+	end
 
   protected
 	def authorize
 		unless User.find_by_id(session[:user_id]) || User.count.zero?
-			flash[:backtrack_path] = request.path
+			#flash[:backtrack_path] = request.path
 			redirect_to login_url, :alert => "Please login"
+		end
+	end
+	
+	def backtrack_path
+		unless request.fullpath == login_path
+			session[:backtrack_path] = request.fullpath
 		end
 	end
 	

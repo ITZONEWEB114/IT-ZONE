@@ -72,6 +72,7 @@ en:
     index: &store_index
       title:       "Your Pragmatic Catalog"
       add:         "Add to Cart"
+      add comment: "Add comment"
     show:
       *store_index
       

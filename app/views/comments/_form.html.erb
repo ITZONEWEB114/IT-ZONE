@@ -1,4 +1,8 @@
-<%= form_for(@comment) do |f| %>
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+	
+	<%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -12,8 +16,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.text_field :product_id %>
+	<%= hidden_field_tag "comment[product_id]", params[:product_id]||@comment.product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>

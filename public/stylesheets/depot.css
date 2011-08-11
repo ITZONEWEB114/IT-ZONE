@@ -245,6 +245,28 @@
 	display: inline;
 }
 
+#store #user_head {
+	width: 8em;
+	text-align: center;
+}
+
+#store #comment_head {
+	width: 20em;
+}
+
+#store #time_head {
+	width: 12em;
+}
+
+#store .comment td {
+	text-align: center;
+}
+
+#store .comment td.comment_title {
+	text-align: left;
+}
+
+
 /***************Styles for order form*****************/
 .depot_form fieldset {
 	background: #efe;

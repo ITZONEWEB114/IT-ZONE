@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   
   
   def new
-		flash.keep :backtrack_path
   end
 
   def create
@@ -13,13 +12,8 @@ class SessionsController < ApplicationController
 			@passed = true
 		else
 			@passed = false
-			flash.keep :backtrack_path
 		end
-		if flash[:backtrack_path]
-			@url_to = flash[:backtrack_path]
-		else
-			@url_to = admin_url
-		end
+		@url_to = session[:backtrack_path] || admin_url
 		
 		respond_to do |format|
 				if @passed
