@@ -9,31 +9,6 @@
 <!-- END_HIGHLIGHT -->
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %><!-- <label id="code.csrf"/> -->
-  <script type=text/javascript>
-  	function searchFocus() {
-    var $this = $("#search_query");
-    if ($this.val() == $this.attr('title')) {
-        $this.val("");
-        $("#search_btn").addClass("typing");
-        $this.parent().addClass("highlight");
-    } else if ($this.val() !== "" && $this.val() !== $this.attr('title')) {
-        $("#search_btn").addClass("typing");
-        $this.parent().addClass("highlight");
-    }
-}
-
-function searchBlur() {
-    var $this = $("#search_query");
-    if ($this.val() == "") {
-        $this.val($this.attr('title'));
-        $("#search_btn").removeClass("typing");
-        $this.parent().removeClass("highlight");
-    } else {
-        $("#search_btn").removeClass("typing");
-        $this.parent().removeClass("highlight");
-    }
-}
-  </script>
 </head>
 <!-- END:head -->
 <body id="store">
@@ -60,14 +35,14 @@ function searchBlur() {
  	 <div id="top_buttons">
  	 	<!-- SEARCH FORM IS HERE-->
  	 	<form id=search_box>			
- 	 		<input type="text" autocomplete="off" id="search_query" name="key" onblur="searchBlur();" onclick="searchFocus();">
+ 	 		<input type="text" autocomplete="off" id="search_query" name="key" >
  	 		<input type="submit" id="search_btn" class="" title="搜索" value="">
  	 	</form>
  	 	<!-- END SERACH FORM-->
  	 	<table >
  			<tr>
  				<td>
- 	 				<a href="http://localhost:3000/"><%= t('.home')%></a>
+ 	 				<a href="http://localhost:3000/" onblur="Blur(this);" onclick="Focus(this)"><%= t('.home')%></a>
  	 				<a href="http://localhost:3000/"><%= t('.questions')%></a>
  				 	<a href="http://localhost:3000/"><%= t('.news')%></a>
  	 				<a href="http://localhost:3000/"><%= t('.contact')%></a>
