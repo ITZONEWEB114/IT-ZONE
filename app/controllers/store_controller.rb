@@ -6,6 +6,7 @@ class StoreController < ApplicationController
 		else
 			@products = Product.all
 			@cart = current_cart
+			@hotProducts = Product.find([1,2]);
 		end
   end
 	

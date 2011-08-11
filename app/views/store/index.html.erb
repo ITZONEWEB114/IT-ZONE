@@ -1,14 +1,27 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
-
+<div class ="hot-widget">
+	<p>HOT</p>
+<table>
+	<%for hotOne in @hotProducts%>
+		<tr class="hotline">
+		    <td class="bookImage">
+		    	<%= image_tag hotOne.image_url%>
+		    </td>
+		    <td class="bookDetail">
+		    	<dt><%=hotOne.title %></dt>
+		    	<dt><%=number_to_currency(hotOne.price)%></dt>
+		    </td>
+		</tr>
+	<%end%>
+</table>
+</div>
 <h1><%= t('.title_html')%></h1>
-
 <% @products.each do |product| %>
 	<div class="entry">
-	   <%= image_tag(product.image_url) %>
-	   <h3><%= product.title %></h3>
+	   <%= link_to image_tag(product.image_url), product %>
+	   <h3><%= link_to product.title ,product%></h3>
 	   <%=sanitize product.description %>
 	   <div class="price_line">
 		<span class="price"><%= number_to_currency(product.price) %></span>
