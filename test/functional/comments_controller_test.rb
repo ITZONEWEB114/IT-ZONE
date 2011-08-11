@@ -12,7 +12,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new()
+    get :new
     assert_response :success
   end
 
