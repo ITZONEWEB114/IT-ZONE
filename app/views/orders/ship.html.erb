@@ -1,0 +1,9 @@
+<h1>Shipping order</h1>
+
+<%= render 'manage_form' %>
+
+<span>
+	<%= link_to "Ignore & Next", ship_orders_path(:previous_id => @order.id), :confirm => "Are you sure the ignore the changes and ship next order ?" %>
+	&nbsp;|&nbsp;
+	<%= link_to "Back to Orders", orders_path, :confirm => "Are you sure the ignore the changes and move back to orders ?" %>
+</span>

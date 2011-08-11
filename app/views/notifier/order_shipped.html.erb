@@ -1,9 +1,6 @@
-<h3>Pragmatic Store Order Shipped</h3>
-<p>
-	This is just to let you know that we've shipped your recent order:
-</p>
+<h3>Pragmatic Order <%= @state %></h3>
+<p>We sent this email to let you know that we've <%= @state.downcase %> your recent order :</p>
 
-<table>
-	<tr><th colspan="2">Qty</th> <th>Description</th></tr>
-<%= render @order.line_items%>
-</table>
+<%= render :partial => "orders/order_in_mail", :object => @order %>
+
+<p>We'll send you an e-mail if your order is shipped or amended and you can view your order status <%= link_to 'here', present_order_url(@order, :locale=>I18n.locale) %>&nbsp;at anytime.</p>

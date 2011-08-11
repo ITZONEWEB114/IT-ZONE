@@ -5,19 +5,12 @@ class CustomerAdminControllerTest < ActionController::TestCase
     get :login
     assert_response :success
   end
-<<<<<<< HEAD
   
   test "should login" do
     liangzhenxiang = customers(:one)
     post:judge, :name => liangzhenxiang.name, :password => '1'
     assert_redirected_to session[:page]
     assert_equal liangzhenxiang.id, session[:customer_id]
-=======
-
-  test "should get register" do
-    get :register
-    assert_response :success
->>>>>>> master
   end
 
   test "should get confirm" do

@@ -1,10 +1,11 @@
 class Customer < ActiveRecord::Base
-   validates :name, :email, :presence => true, :uniqueness => true
-  
+
+	has_many :orders
+
+   validates :name, :email, :presence => true, :uniqueness => true  
   validates :password, :confirmation => true
   attr_accessor :password_confirmation
   attr_reader     :password
-
   
   validate  :password_must_be_present
   

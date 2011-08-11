@@ -5,9 +5,19 @@ one:
   address: MyText
   email: dave@example.org
   pay_type: Check
+  customer_id:
+  shipped:
+  ship_date:
+  express_company:
+  express_number:
 
 two:
   name: MyString
   address: MyText
   email: MyString
   pay_type: MyString
+  customer_id:
+  shipped:
+  ship_date:
+  express_company:
+  express_number:

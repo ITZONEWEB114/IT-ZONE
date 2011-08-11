@@ -2,9 +2,17 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
   setup do
-    @order = orders(:one)
+    @order = orders(:one)#.merge({:customer_id => orders(:one).id})
+		@order.customer_id=customers(:one).id
+		@update= {
+			:name => orders(:one).name,
+			:address => orders(:one).address,
+			:email => orders(:one).email,
+			:pay_type => orders(:one).pay_type,
+			:customer_id => customers(:one).id
+		}
   end
-
+	
   test "requires item in cart" do
     get :new
     assert_redirected_to store_path
@@ -28,7 +36,7 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should create order" do
     assert_difference('Order.count') do
-      post :create, :order => @order.attributes
+      post :create, :order => @update
     end
     assert_redirected_to store_path
   end
@@ -39,13 +47,13 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => @order.to_param
+    get :edit, :id => @order.to_param, :customer_id => @order.customer_id
     assert_response :success
   end
 
   test "should update order" do
-    put :update, :id => @order.to_param, :order => @order.attributes
-    assert_redirected_to order_path(assigns(:order))
+    put :update, :id => @order.to_param, :order => @update
+    assert_redirected_to ship_orders_path( :previous_id => assigns(:order).id )
   end
 
   test "should destroy order" do

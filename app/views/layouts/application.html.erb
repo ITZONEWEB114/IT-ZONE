@@ -32,7 +32,7 @@
  		<%= submit_tag "submit"%>
  	<% end %>
  	
-	<%= image_tag("logo.png") %>
+	<%= link_to image_tag("logo.png"),store_path %>
 	<%= @page_title || t('.title') %><!-- <label id="code.depot.e.title"/> -->
   </div>
   <div id="columns">

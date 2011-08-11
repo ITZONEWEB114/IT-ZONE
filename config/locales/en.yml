@@ -10,14 +10,22 @@ en:
   orders:
     new:
       legend: "Please Enter your Details"
-    form:
+    form: &order_form
       name: "Name"
       address_html: "Address"
       email: "E-mail"
       pay_type: "Pay with"
       pay_prompt_html: "Select a payment method"
       submit: "Place Order"
+    manage_form:
+      *order_form
 
+
+  pay_types:
+    Check:                "Check"
+    Credit card:          "Credit Card"
+    Purchase order:       "Purchase Order"
+    
   activerecord:
     errors:
       messages:
@@ -62,3 +70,6 @@ en:
         format: "%u%n"
       
         
+        
+  date:
+    order:  [:year, :month, :day]

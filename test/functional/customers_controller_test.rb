@@ -24,17 +24,10 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-<<<<<<< HEAD
       post :create, :customer => @input_attributes
     end
 
     assert_redirected_to store_url
-=======
-      post :create, :customer => @customer.attributes
-    end
-
-    assert_redirected_to customer_path(assigns(:customer))
->>>>>>> master
   end
 
   test "should show customer" do

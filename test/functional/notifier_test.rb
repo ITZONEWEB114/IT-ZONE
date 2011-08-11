@@ -10,11 +10,11 @@ class NotifierTest < ActionMailer::TestCase
   end
 
   test "order_shipped" do
-    mail = Notifier.order_shipped(orders(:one))
+    mail = Notifier.order_shipped(orders(:one), "Shipped")
     assert_equal "Pragmatic Store Order Shipped", mail.subject
     assert_equal ["dave@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
-    assert_match /<td>1&times;<\/td>\s*<td>Programming Ruby 1.9<\/td>/, mail.body.encoded
+    assert_match /1&times;<\/td>\s*<td.*<a.*Programming Ruby 1.9<\/a><\/td>/m, mail.body.encoded
   end
 
 end

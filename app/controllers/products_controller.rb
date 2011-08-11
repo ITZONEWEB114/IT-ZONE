@@ -14,11 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-<<<<<<< HEAD
-
-=======
     @comments = Comment.where(:product_id=>@product)
->>>>>>> master
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product }
@@ -93,7 +89,6 @@ class ProductsController < ApplicationController
       format.xml { render :xml => @product}
     end
   end
-<<<<<<< HEAD
   
   def search
     @products = Product.find(:all, condition=>["title like?","%"+params["search"]+"%"])
@@ -103,6 +98,4 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-=======
->>>>>>> master
 end

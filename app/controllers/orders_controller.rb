@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
-  before_filter :customer_authorize, :only => [:new, :create]
-  skip_before_filter :authorize, :only => [:new, :create]
-  # GET /orders
+  before_filter :customer_authorize, :only => [:new, :create, :present]
+  skip_before_filter :authorize, :only => [:new, :create, :present]
+  
+	# GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.paginate :page => params[:page], :order => 'id desc',
-      :per_page => 10
+    #@orders = Order.all
+	@orders = Order.paginate :page => params[:page], :order => 'created_at asc', :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,15 +24,29 @@ class OrdersController < ApplicationController
       format.xml  { render :xml => @order }
     end
   end
+	
+  # GET /orders/1/present
+  def present
+    @order = Order.find(params[:id])
+		is_buyer=(@order.customer_id == (current_customer.id.to_i))
+
+		if is_buyer
+			respond_to do |format|
+				format.html # present.html.erb
+			end
+		else
+			redirect_to store_path, :notice => "You are not the owner of that order"
+		end
+  end
 
   # GET /orders/new
   # GET /orders/new.xml
   def new
-    if current_cart.line_items.empty?
-      redirect_to store_url, :notice => "Your cart is empty"
-      return
-    end
-    
+		if (@cart=current_cart).line_items.empty?
+			redirect_to store_url, :notice => "Your cart is empty"
+			return
+		end
+  
     @order = Order.new
 
     respond_to do |format|
@@ -43,19 +58,22 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+		@customer = Customer.find(@order.customer_id||params[:customer_id])
+		flash[:true_if_editing_false_if_shipping] = true
   end
 
   # POST /orders
   # POST /orders.xml
   def create
-    @order = Order.new(params[:order])
-    @order.add_line_items_from_cart(current_cart)
-
+		@customer = current_customer
+    @order = Order.new(params[:order].merge!({:customer_id => @customer.id}))
+		@order.add_line_items_from_cart(current_cart)
+	
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-        Notifier.order_received(@order).deliver
+				Cart.destroy(session[:cart_id])
+				session[:cart_id] = nil
+				Notifier.order_received(@order).deliver
         format.html { redirect_to(store_url, :notice => I18n.t('.thanks')) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
@@ -69,10 +87,14 @@ class OrdersController < ApplicationController
   # PUT /orders/1.xml
   def update
     @order = Order.find(params[:id])
-
+		@state, @path_to, flash[:notice] = flash[:true_if_editing_false_if_shipping] ? \
+			["Amended", orders_path, 'Order was successfully updated.' ] \
+			: \
+			["Shipped", ship_orders_path(:previous_id => @order.id), 'Order was successfully shipped.']
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to(@order, :notice => 'Order was successfully updated.') }
+				Notifier.order_shipped(@order, @state).deliver
+        format.html { redirect_to @path_to }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -92,4 +114,14 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+	
+	def ship
+		unless @order = Order.find( :first, :conditions => [ "id > :id and shipped = :false", {:id=>(params[:previous_id] || (Order::ID_STARTED_AT-1)), :false => false}])
+			redirect_to orders_path, :notice => "No unshipped orders found."
+		else
+			@customer = Customer.find(@order.customer_id)
+			flash[:true_if_editing_false_if_shipping] = false
+		end
+	end
+		
 end

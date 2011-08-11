@@ -17,10 +17,11 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.order_shipped.subject
   #
-  def order_shipped(order)
+  def order_shipped(order, state)
     @order = order
+		@state = state
     
-    mail :to => order.email, :subject => 'Pragmatic Store Order Shipped'
+    mail :to => order.email, :subject => "Pragmatic Store Order #{@state}"
   end
   
   def confirm_letter(customer)

@@ -1,0 +1,62 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Order#: <%= @order.id %></h1>
+<p>
+  <b>Name:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Pay type:</b>
+  <%= @order.pay_type %>
+</p>
+
+<p>
+  <b>Shipped:</b>
+  <%= @order.shipped ? 'Yes' : 'Not yet' %>
+</p>
+
+<% if @order.shipped %>
+	<p>
+	  <b>Ship Date:</b>
+	  <%= @order.ship_date %>
+	</p>
+
+	<p>
+	  <b>Express Company:</b>
+	  <%= @order.express_company %>
+	</p>
+
+	<p>
+	  <b>Express Number:</b>
+	  <%= @order.express_number %>
+	</p>
+<% end %>
+<table>
+	<tr>
+		<th style="width: 4em">Qty</th>
+		<th style="width: 20em">Title</th>
+		<th style="width: 6em">Price</th>
+	</tr>
+	
+	<%= render :partial => "line_items/line_item_in_mail", :collection => @order.line_items %>
+
+	<tr>
+		<td colspan="2", style="text-align: right" >Total</td>
+		<td style="text-align: right; font-weight: bold; border-top: 2px olive solid"><%= number_to_currency(@order.total_price) %></td>
+	</tr>
+</table>
+
+<%= link_to 'Back', store_path %>

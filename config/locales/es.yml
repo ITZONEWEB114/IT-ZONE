@@ -10,13 +10,21 @@ es:
   orders:
     new:
       legend: "Por favor, introduzca sus datos"
-    form:
+    form: &order_form
       name: "Nombre"
       address_html: "Direcci&oacute;n"
       email: "E-mail"
       pay_type: "Pagar con"
       pay_prompt_html: "Seleccione un m&eacute;todo de pago"
       submit: "Realizar Pedido"
+    manage_form:
+      *order_form
+      
+  pay_types:
+    Check:                "Comprobar"
+    Credit card:          "Tarjeta de Crédito"
+    Purchase order:       "Orden de Compra"
+      
       
   activerecord:
     errors:
@@ -60,3 +68,6 @@ es:
         separator: ","
         delimiter: "."
         format: "%n&nbsp;%u"
+        
+  date:
+    order:  [:year, :month, :day]

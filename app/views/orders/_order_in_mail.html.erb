@@ -1,0 +1,56 @@
+<h1>Order#: <%= order_in_mail.id %></h1>
+<p>
+  <b>Name:</b>
+  <%= order_in_mail.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= order_in_mail.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= order_in_mail.email %>
+</p>
+
+<p>
+  <b>Pay type:</b>
+  <%= order_in_mail.pay_type %>
+</p>
+
+<p>
+  <b>Shipped:</b>
+  <%= order_in_mail.shipped ? 'Yes' : 'Not yet' %>
+</p>
+
+<% if order_in_mail.shipped %>
+	<p>
+	  <b>Ship Date:</b>
+	  <%= order_in_mail.ship_date %>
+	</p>
+
+	<p>
+	  <b>Express Company:</b>
+	  <%= order_in_mail.express_company %>
+	</p>
+
+	<p>
+	  <b>Express Number:</b>
+	  <%= order_in_mail.express_number %>
+	</p>
+<% end %>
+<table>
+	<tr>
+		<th style="width: 4em">Qty</th>
+		<th style="width: 20em">Title</th>
+		<th style="width: 6em">Price</th>
+	</tr>
+	
+	<%= render :partial => "line_items/line_item_in_mail", :collection => order_in_mail.line_items %>
+
+	<tr>
+		<td colspan="2", style="text-align: right" >Total</td>
+		<td style="text-align: right; font-weight: bold; border-top: 2px olive solid"><%= number_to_currency(order_in_mail.total_price) %></td>
+	</tr>
+</table>

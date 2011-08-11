@@ -1,0 +1,6 @@
+page.alert(flash[:notice]) if !@passed
+
+page.replace_html('cart', render(@cart))  if @cart.total_items != 0 
+
+page[:cart].visual_effect	:blind_up if @cart.total_items == 0
+

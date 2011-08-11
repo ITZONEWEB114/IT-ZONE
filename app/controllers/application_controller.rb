@@ -14,10 +14,17 @@ class ApplicationController < ActionController::Base
 	  cart
 	end
 	
+	def current_user
+		User.find_by_id(session[:user_id])
+	end
+	def current_customer
+		Customer.find_by_id(session[:customer_id])
+	end
+	
 	protected
 	
 	def authorize
-	  unless User.find_by_id(session[:user_id])
+	  unless User.find_by_id(session[:user_id]) || User.count.zero?
 	    redirect_to login_url, :notice => "Please log in"
 	  end
 	end

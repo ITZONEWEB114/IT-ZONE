@@ -11,6 +11,10 @@
 		</div>
 	<% end %>
 	
+	
+	
+	<h3>Order#: <%= @order.id %> by <%= link_to @customer.name, @customer %>, customer id is : <%= @customer.id %>.</h3>
+	
 	<div>
 		<%= f.label :name, t('.name')+":" %>
 		<%= f.text_field :name, :size => 40 %>
@@ -35,5 +39,28 @@
 		%>
 	</div>
 	
-	<%= f.submit t('.submit') %>
+	<div>
+		<%= f.label :shipped %>
+		<%= f.check_box :shipped %>
+	</div>
+	
+	<div>
+		<%= f.label :ship_date %>
+		<%= f.date_select :ship_date, :include_blank => true, :use_month_numbers => true %>
+	</div>
+	
+	<div>
+		<%= f.label :express_company %>
+		<%= f.text_field :express_company, :size => 40 %>
+	</div>
+	
+	<div>
+		<%= f.label :express_number %>
+		<%= f.text_field :express_number, :size => 40 %>
+	</div>
+	<% if flash[:true_if_editing_false_if_shipping] %>
+		<%= f.submit t('.submit'), :disable_with => "Updating..." %>
+	<% else %>
+		<%= f.submit "Ship & Next", :disable_with => "Shipping..." %>
+	<% end %>
 <% end %>
