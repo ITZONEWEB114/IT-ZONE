@@ -29,13 +29,13 @@ jp:
         inclusion: "is not include in the list"
         blank: "can't be blank"
     models:
-      order: "受注"
+      order: "order"
   attributes:
     order:
-      address: "住所"
-      name: "姓名"
-      email: "電子メール"
-      pay_type: "支払い方法"
+      address: "Address"
+      name: "Name"
+      email: "E-mail"
+      pay_type: "pay-type"
 
   errors:
     template:
@@ -69,10 +69,9 @@ jp:
         
   models:
     order:
-      Check: "現金"
-      Credit cart: "クレジットカード"
-      Purchase order: "購買注文
-"
+      Check: "现金"
+      Credit cart: "信用卡"
+      Purchase order: "采购订单"
       
 
       

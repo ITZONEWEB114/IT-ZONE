@@ -27,16 +27,16 @@ zh:
   activerecord:
     errors:
       messages:
-        inclusion: "不存在与列表中"
-        blank: "不能为空"
+        inclusion: "is not include in the list"
+        blank: "can't be blank"
     models:
-      order: "订单"
+      order: "order"
   attributes:
     order:
-      address: "地址"
-      name: "姓名"
-      email: "电子邮箱"
-      pay_type: "付款方式"
+      address: "Address"
+      name: "Name"
+      email: "E-mail"
+      pay_type: "pay-type"
 
   errors:
     template:
