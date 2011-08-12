@@ -15,6 +15,7 @@ Depot::Application.routes.draw do
      resources :carts
      resources :products do
         get :who_bought, :on => :member
+        post :search, :on=> :collection
      end
      resources :products do
       resources :comments

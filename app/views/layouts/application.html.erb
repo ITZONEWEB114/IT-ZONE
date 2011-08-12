@@ -34,7 +34,7 @@
  
  	 <div id="top_buttons">
  	 	<!-- SEARCH FORM IS HERE-->
- 	 	<form id=search_box>			
+ 	 	<form id=search_box action=<%= search_products_url :locale=>I18n.locale%> method="post">			
  	 		<input type="text" autocomplete="off" id="search_query" name="key" >
  	 		<input type="submit" id="search_btn" class="" title="搜索" value="">
  	 	</form>

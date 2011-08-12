@@ -1,0 +1,17 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= t('.title_html')%></h1>
+<% @products.each do |product| %>
+	<div class="entry">
+	   <%= link_to image_tag(product.image_url), show_product_url(:product_id=>product) %>
+	   <h3><%= link_to product.title ,show_product_url(:product_id=>product)%></h3>
+	   <%=sanitize product.description %>
+	   <div class="price_line">
+		<span class="price"><%= number_to_currency(product.price) %></span>
+		<%= button_to t('.add_html'), line_items_path(:product_id => product),
+			:remote => true %>
+	   </div>
+	</div>
+<% end %>

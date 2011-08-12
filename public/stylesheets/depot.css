@@ -122,19 +122,16 @@
 	margin-left:3px;
 }
 
-#columns {
-  
-}
 
 #main {
   margin-left: 15em;
   padding-top: 5ex;
   padding-left: 2em;
-
+  min-width: 750px;
 }
 
 
-
+#columns{overflow:hidden;} /*外容器*/ 
 #side {
   float: left;
   padding:0.5em;
@@ -142,6 +139,8 @@
   margin-left: 0.5em;
   width: 15em;
   background:#FFFFFF;
+  padding-bottom:100000px;
+  margin-bottom:-100000px;
 }
 
 #side a {
