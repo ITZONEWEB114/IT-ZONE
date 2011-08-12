@@ -1,0 +1,78 @@
+kr:
+  layouts:
+    application:
+      title: "YOKOHAMA책장"
+      home: "홈"
+      questions: "질문"
+      news: "뉴스"
+      contact: "접촉"
+      Order: "주문 정보"
+      Products: "제품 정보"
+      Users: "사용자 정보"
+      Logout: "로그아웃"
+
+  orders:
+    new:
+      New order: "새로운 질서"
+      legend: "귀하의 세부 정보를 입력하세요"
+    form:
+      name: "이름"
+      address: "주소"
+      email: "E - 메일 주소"
+      pay_type: "지불"
+      pay_prompt: "지불 방법을 선택"
+      submit: "주문 확인"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "is not include in the list"
+        blank: "can't be blank"
+    models:
+      order: "order"
+  attributes:
+    order:
+      address: "Address"
+      name: "Name"
+      email: "E-mail"
+      pay_type: "pay-type"
+
+  errors:
+    template:
+      body: "There are problems with the following fields"
+      header:
+        one: "1 error prohibited this order from being saved"
+        other: "%{count} errors prohibited this order from being saved"
+
+  thanks: "주문 주셔서 감사합니다！"
+  
+  store:
+    index:
+      title_html: "귀하의 제품 카탈로그"
+      add_html: "제품 추가"
+
+  carts:
+    cart:
+      title: "귀하의 쇼핑 바구니"
+      empty: "맑은"
+      checkout: "체크 아웃"
+      Are you sure?: "정말 그것을합니까?"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+        
+  models:
+    order:
+      Check: "现金"
+      Credit cart: "信用卡"
+      Purchase order: "采购订单"
+      
+
+      
+        

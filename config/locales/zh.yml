@@ -1,0 +1,86 @@
+zh:
+  layouts:
+    application:
+      title: "YOKOHAMA书城"
+      home: "主页"
+      questions: "询问"
+      news: "新闻"
+      contact: "联系"
+      Order: "订单信息"
+      Products: "产品信息"
+      Users: "用户资料"
+      Logout: "注销"
+      Login: "登陆"
+
+  orders:
+    new:
+      New order: "新的订单"
+      legend: "请输入你的详细信息"
+    form:
+      name: "名字"
+      address: "地址"
+      email: "邮箱地址"
+      pay_type: "付款方式"
+      pay_prompt: "选择付款的方式"
+      submit: "确认订单"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "is not include in the list"
+        blank: "can't be blank"
+    models:
+      order: "order"
+  attributes:
+    order:
+      address: "Address"
+      name: "Name"
+      email: "E-mail"
+      pay_type: "pay-type"
+
+  errors:
+    template:
+      body: "There are problems with the following fields"
+      header:
+        one: "1 error prohibited this order from being saved"
+        other: "%{count} errors prohibited this order from being saved"
+
+  thanks: "感谢您的订购"
+  
+  store:
+    index:
+      title_html: "您的产品目录"
+      add_html: "添加产品"
+
+  carts:
+    cart:
+      title: "您的购物车"
+      empty: "清空"
+      checkout: "结账"
+      Are you sure?: "你确认这样做吗？"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+        
+  models:
+    order:
+      Check: "现金"
+      Credit cart: "信用卡"
+      Purchase order: "采购订单"
+      
+  users:
+    form:
+      name: "账号"
+      Password: "密码"
+      Confirm: "密码确认"
+      
+      
+
+      
+        
