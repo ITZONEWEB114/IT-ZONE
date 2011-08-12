@@ -20,57 +20,12 @@
 	width: 67%;
 }
 
-/* Styles for products/index */
 
-#product_list table {
-        border-collapse: collapse;
-}
-
-#product_list table tr td {
-        padding: 5px;
-        vertical-align: top;
-}
-
-#product_list .list_image {
-  width:        60px;
-  height:       70px;
-}
-
-#product_list .list_description {
-  width:        60%;
-}
-
-#product_list .list_description dl {
-        margin: 0;
-}
-
-#product_list .list_description dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
-}
-
-#product_list .list_description dd {
-        margin: 0;
-}
-
-#product_list .list_actions {
-  font-size:    x-small;
-  text-align:   right;
-  padding-left: 1em;
-}
-
-#product_list .list_line_even {
-  background:   #e0f8f8;
-}
-
-#product_list .list_line_odd {
-  background:   #f8b0f8;
-}
 
 /* START:mainlayout */
 /* Styles for main page */
 
+	/*****banner********/
 #banner {
 	height:89px;
     background:url() no-repeat scroll 0 0 transparent;
@@ -122,19 +77,24 @@
 	margin-left:3px;
 }
 
+	/********columns**********/
 #columns {
-  
+  overflow: hidden;
 }
 
+
+		/*main*/
 #main {
   margin-left: 15em;
   padding-top: 5ex;
   padding-left: 2em;
 
+  padding-bottom: 10000px;
+  margin-bottom: -10000px;
 }
 
 
-
+		/*side*/
 #side {
   float: left;
   padding:0.5em;
@@ -142,6 +102,9 @@
   margin-left: 0.5em;
   width: 15em;
   background:#FFFFFF;
+  
+  padding-bottom: 10000px;
+  margin-bottom: -10000px;
 }
 
 #side a {
@@ -532,4 +495,58 @@ clear: both;
 	float: left;
 	color: #ABABAB;
 	margin: 3px 0 0 2px;
+}
+
+/* Styles for products/index */
+
+#product_list table {
+        border-collapse: collapse;
+}
+
+#product_list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#product_list .list_image {
+  width:        60px;
+  height:       70px;
+}
+
+#product_list .list_description {
+  width:        60%;
+}
+
+#product_list .list_description dl {
+        margin: 0;
+}
+
+#product_list .list_description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#product_list .list_description dd {
+        margin: 0;
+}
+
+#product_list .list_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#product_list .list_line_even {
+  background:   #e0f8f8;
+}
+
+#product_list .list_line_odd {
+  background:   #f8b0f8;
+}
+
+
+/*mixing*/
+div.clearboth {
+	clear: both;
 }
