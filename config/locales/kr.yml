@@ -32,10 +32,10 @@ kr:
       order: "order"
   attributes:
     order:
-      address: "Address"
-      name: "Name"
-      email: "E-mail"
-      pay_type: "pay-type"
+      address: "주소"
+      name: "이름"
+      email: "e 메일
+      pay_type: "지불방식"
 
   errors:
     template:
@@ -71,8 +71,7 @@ kr:
     order:
       Check: "현금"
       Credit cart: "신용카드"
-      Purchase order: "주문
-"
+      Purchase order: "주문"
       
 
       
