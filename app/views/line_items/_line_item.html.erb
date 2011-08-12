@@ -6,5 +6,5 @@
 	<td><%= line_item.quantity %>&times;</td>
 	<td><%= link_to line_item.product.title, line_item.product %></td>
 	<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
-	<td class="delete_item"><%= link_to image_tag("cross.png", :alt => "delete this item"), line_item, :method => :delete, :remote => true, :confirm => "Are you sure to delete #{line_item.product.title} from your cart ?" %></td>
+	<td class="delete_item"><%= link_to image_tag("cross.png", :alt => "delete this item"), line_item_path(line_item, :authenticity_token => form_authenticity_token), :method => :delete, :remote => true, :confirm => "Are you sure to delete #{line_item.product.title} from your cart ?" %></td>
 </tr>

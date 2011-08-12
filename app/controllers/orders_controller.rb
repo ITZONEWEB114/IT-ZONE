@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
-		@customer = Customer.find(@order.customer_id||params[:customer_id])
+		@customer = Customer.find(@order.customer_id)
 		flash[:true_if_editing_false_if_shipping] = true
   end
 
@@ -116,7 +116,7 @@ class OrdersController < ApplicationController
   end
 	
 	def ship
-		unless @order = Order.find( :first, :conditions => [ "id > :id and shipped = :false", {:id=>(params[:previous_id] || (Order::ID_STARTED_AT-1)), :false => false}])
+		unless @order = Order.find( :first, :conditions => [ "id > :id and shipped = :false", {:id=>(params[:previous_id] || 0), :false => false}])
 			redirect_to orders_path, :notice => "No unshipped orders found."
 		else
 			@customer = Customer.find(@order.customer_id)

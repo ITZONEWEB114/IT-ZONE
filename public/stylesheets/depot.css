@@ -230,6 +230,9 @@
   border-bottom: 1px dotted #000000;
   margin-bottom: 10px;
 }
+#cart a:hover {
+	background: none;
+}
 /* END:cartside */
 
 /* START:form */

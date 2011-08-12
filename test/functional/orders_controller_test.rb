@@ -2,8 +2,9 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
   setup do
-    @order = orders(:one)#.merge({:customer_id => orders(:one).id})
+    @order = orders(:one)
 		@order.customer_id=customers(:one).id
+		@order.save
 		@update= {
 			:name => orders(:one).name,
 			:address => orders(:one).address,
@@ -47,7 +48,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => @order.to_param, :customer_id => @order.customer_id
+    get :edit, :id => @order.to_param
     assert_response :success
   end
 
