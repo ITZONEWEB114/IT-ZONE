@@ -69,9 +69,10 @@ kr:
         
   models:
     order:
-      Check: "现金"
-      Credit cart: "信用卡"
-      Purchase order: "采购订单"
+      Check: "현금"
+      Credit cart: "신용카드"
+      Purchase order: "주문
+"
       
 
       
