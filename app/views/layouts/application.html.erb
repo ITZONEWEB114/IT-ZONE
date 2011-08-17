@@ -56,7 +56,7 @@
   <div id="columns">
 	<div id="side">
 		<% if @cart %>
-			<% hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
+			<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do%>
 				<%= render @cart%>
 			<% end %>
 		<% end %>
@@ -70,13 +70,18 @@
 	  	<%= link_to "Orders", orders_path %><br />
 	  	<%= link_to "Products", products_path %><br />
 	  	<%= link_to "Users", users_path %><br />
+	  	<%= link_to "Download Administrator Manual", "manuals/AdministratorManual.pdf" %><br />
 	  	<br />
 	  	<%= button_to 'Logout', logout_path, :method => :delete %>
+	  <% else %>
+	    <br />
+	  	<%= link_to "Download user Manual", "manuals/UserManual.pdf" %><br />
 	  <% end %>
   </div>
   <div id="main">
 	<%= yield %><!-- <label id="code.depot.e.include"/> -->
   </div>
+  <div class="clearboth"></div>
  </div>
  
 </body>

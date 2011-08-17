@@ -3,7 +3,13 @@ require 'test_helper'
 class LineItemsControllerTest < ActionController::TestCase
   setup do
     @line_item = line_items(:one)
+		@line_item.cart_id = carts(:one).id 
+		@line_item.save
   end
+	
+	teardown do
+		session[:cart_id] = nil
+	end
 
   test "should get index" do
     get :index
@@ -48,7 +54,8 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy line_item" do
-    assert_difference('LineItem.count', -1) do
+		session[:cart_id] = carts(:one).id
+    assert_difference('LineItem.count', -1, @line_item.cart_id  ) do
       delete :destroy, :id => @line_item.to_param
     end
 
