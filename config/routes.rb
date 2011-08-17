@@ -40,10 +40,12 @@ Depot::Application.routes.draw do
       get "login" => :new, :as => :login
       post 'login' => :create, :as => :login
       delete 'logout' => :destroy, :as => :logout
-   end
+		end
+		
   end
- end
   
+  # !!!!make sure the following is the last one in routes.rb
+  match '*error_path' => 'errors#routing'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -103,3 +105,5 @@ Depot::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
+
+end

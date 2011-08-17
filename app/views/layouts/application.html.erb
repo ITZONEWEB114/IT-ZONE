@@ -34,18 +34,18 @@
  
  	 <div id="top_buttons">
  	 	<!-- SEARCH FORM IS HERE-->
- 	 	<form id=search_box action=<%= search_products_url :locale=>I18n.locale%> method="post">			
- 	 		<input type="text" autocomplete="off" id="search_query" name="key" >
- 	 		<input type="submit" id="search_btn" class="" title="搜索" value="">
+ 	 	<form id="search_box" action="<%= search_products_url :locale=>I18n.locale%>" method="post">			
+ 	 		<input type="text" autocomplete="off" id="search_query" name="key" />
+ 	 		<input type="submit" id="search_btn" class="" title="搜索" value="" />
  	 	</form>
  	 	<!-- END SERACH FORM-->
  	 	<table >
  			<tr>
  				<td>
- 	 				<a href="http://localhost:3000/" onblur="Blur(this);" onclick="Focus(this)"><%= t('.home')%></a>
- 	 				<a href="http://localhost:3000/"><%= t('.questions')%></a>
- 				 	<a href="http://localhost:3000/"><%= t('.news')%></a>
- 	 				<a href="http://localhost:3000/"><%= t('.contact')%></a>
+ 	 				<a href="/" onblur="Blur(this);" onclick="Focus(this)"><%= t('.home')%></a>
+ 	 				<a href="/"><%= t('.questions')%></a>
+ 				 	<a href="/"><%= t('.news')%></a>
+ 	 				<a href="/"><%= t('.contact')%></a>
  	 			</td>
  	 		</tr>
  		</table>
@@ -60,10 +60,6 @@
 				<%= render @cart%>
 			<% end %>
 		<% end %>
-	  <a href="http://www...."><%= t('.home')%></a><br />
-	  <a href="http://www..../faq"><%= t('.questions')%></a><br />
-	  <a href="http://www..../news"><%= t('.news')%></a><br />
-	  <a href="http://www..../contact"> <%= t('.contact')%></a><br />
 	  
 	  <% if session[:user_id]%>
 	  	<br />
